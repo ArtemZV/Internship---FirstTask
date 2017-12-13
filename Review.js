@@ -6,11 +6,12 @@ function Review(reviewText, user){
 }
 
 Review.prototype.addReviewToTable = function(){;
-    var userCell = document.querySelector('[data-user="' + this.user.name + '"]');
-    var reviewBlock = userCell.lastChild.children[0];
+    var userRow = document.querySelector('[data-user="' + this.user.name + '"]'),
+        reviewsBlock = userRow.getElementsByTagName('table'),
+        newReviewCell = document.createElement('td');
 
-    reviewBlock.appendChild(document.createElement("tr"));
-    var newReview = document.createElement('td');
-    newReview.innerHTML = this.reviewText; 
-    reviewBlock.lastChild.appendChild(newReview);
+    newReviewCell.innerHTML = this.reviewText; 
+    
+    reviewsBlock.appendChild(document.createElement("tr"));
+    reviewsBlock.lastChild.appendChild(newReviewCell);
 }

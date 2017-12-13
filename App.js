@@ -14,14 +14,7 @@ App.prototype.init = function(){
   function addReview(){
     var reviewText = document.getElementById('reviewText').value;
     if (reviewText !=''){
-      var user,
-          name = document.getElementById('usersSelect').value;      
-
-      User.users.some(el => {
-          if (el.name == name) user = el;
-      }); 
-
-      new Review(reviewText, user); 
+      new Review(reviewText, User.getUserByName(document.getElementById('usersSelect').value)); 
     }    
   }
 
@@ -34,12 +27,14 @@ App.prototype.init = function(){
   });
 
   eventEmmiter.on('newUserCreated', function(user){
+    User.users.push(user);
+    
     user.addUserToTableAndSelect();     
   });
 
   eventEmmiter.on('newReviewCreated', function(review){
     review.addReviewToTable();
-  }); 
+  });
 }
   
 new App();

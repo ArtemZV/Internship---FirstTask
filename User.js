@@ -2,7 +2,6 @@
 function User(name){    
     this.name = name;
     this.reviews = [];
-    User.users.push(this);
     eventEmmiter.emit('newUserCreated', this);    
 }
 
@@ -11,24 +10,28 @@ User.prototype.addUserToTableAndSelect = function(){
     addUserToSelect(this);
 
     function addUserToTable(user){
-        var usersTable = document.getElementById("usersTable");
-        var tableNewUserRow = document.createElement("tr");
-        tableNewUserRow.setAttribute("data-user", user.name);
-        
-        var userNameCell = document.createElement("td");
-        userNameCell.innerHTML = user.name;        
-        var reviewCell = document.createElement("td");
-        var innerTable = document.createElement("table");
+        var usersTable = document.getElementById("usersTable"),
+            newUserRow = document.createElement("tr"),
+            userNameCell = document.createElement("td");
+
+        userNameCell.innerHTML = user.name;
+
+        var reviewCell = document.createElement("td"),
+            innerTable = document.createElement("table");
+
         reviewCell.appendChild(innerTable);
-        
-        tableNewUserRow.appendChild(userNameCell);
-        tableNewUserRow.appendChild(reviewCell);
-        usersTable.appendChild(tableNewUserRow);
+
+        newUserRow.setAttribute("data-user", user.name);
+        newUserRow.appendChild(userNameCell);
+        newUserRow.appendChild(reviewCell);
+
+        usersTable.appendChild(newUserRow);
     }
       
     function addUserToSelect(user){
-        var usersSelect = document.getElementById("usersSelect");
-        var newUser = document.createElement("option");
+        var usersSelect = document.getElementById("usersSelect"),
+            newUser = document.createElement("option");
+
         newUser.value = user.name;
         newUser.innerHTML = user.name;
         usersSelect.appendChild(newUser);
@@ -45,4 +48,12 @@ User.isThisNameExist = function(name){
     return User.users.some(el => {
         return el.name == name
     });
+};
+
+User.getUserByName = function (name) {
+    var user;
+    User.users.some(el => {
+        if (el.name == name) user = el;
+    }); 
+    return user;
 }
