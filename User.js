@@ -1,18 +1,7 @@
 function User(name){    
     this.name = name;
     this.reviews = [];
-    User.users.push(this);    
-    
-    this.addReviewToTable = function(reviewText){
-        this.reviews.push(reviewText);
-        var userCell = document.querySelector('[data-user="' + this.name + '"]');
-        var reviewBlock = userCell.lastChild.children[0];
-
-        reviewBlock.appendChild(document.createElement("tr"));
-        var newReview = document.createElement('td');
-        newReview.innerHTML = reviewText; 
-        reviewBlock.lastChild.appendChild(newReview);
-    }
+    User.users.push(this);   
 
     this.addUserToTableAndSelect = function(){
         addUserToTable(this);
@@ -42,13 +31,23 @@ function User(name){
         newUser.innerHTML = user.name;
         usersSelect.appendChild(newUser);
     }  
+
+    this.addReviewToTable = function(reviewText){
+        this.reviews.push(reviewText);
+        var userCell = document.querySelector('[data-user="' + this.name + '"]');
+        var reviewBlock = userCell.lastChild.children[0];
+
+        reviewBlock.appendChild(document.createElement("tr"));
+        var newReview = document.createElement('td');
+        newReview.innerHTML = reviewText; 
+        reviewBlock.lastChild.appendChild(newReview);
+    }
 }
 
 User.users =  [];
 
 User.isValidName = function(name){
-    var letters = /^[A-Za-zА-ЯЁа-яё]+$/;    
-    return (name != '' && name.match(letters));
+    return (name != '' && name.match(/^[A-Za-zА-ЯЁа-яё]+$/));
 };
 
 User.isThisNameExist = function(name){
@@ -61,11 +60,11 @@ User.addReviewToTable = function(){
     var reviewText = document.getElementById("reviewText").value;
     
     if (reviewText !=''){
-        var user;
-        var name = document.getElementById("usersSelect").value;      
+        var user,
+            name = document.getElementById("usersSelect").value;      
 
-        this.users.some(element => {
-            if (element.name == name) user = element;
+        this.users.some(el => {
+            if (el.name == name) user = el;
         });   
         user.addReviewToTable(reviewText);        
     } 
