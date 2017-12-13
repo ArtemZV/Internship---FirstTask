@@ -12,9 +12,10 @@ App.prototype.init = function(){
   }
   
   function addReview(){
-    var reviewText = document.getElementById('reviewText').value;
-    if (reviewText != ''){
-      new Review(reviewText, User.getUserByName(document.getElementById('usersSelect').value)); 
+    var reviewText = document.getElementById('reviewText').value,
+        userName = document.getElementById('usersSelect').value;
+    if (reviewText != '' && userName != ''){
+      new Review(reviewText, User.getUserByName(userName)); 
     }    
   }
 

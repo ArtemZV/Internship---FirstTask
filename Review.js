@@ -7,7 +7,7 @@ function Review(reviewText, user){
 
 Review.prototype.addReviewToTable = function(){;
     var userRow = document.querySelector('[data-user="' + this.user.name + '"]'),
-        reviewsBlock = userRow.getElementsByTagName('table'),
+        reviewsBlock = userRow.getElementsByTagName('table')[0],
         newReviewCell = document.createElement('td');
 
     newReviewCell.innerHTML = this.reviewText; 
