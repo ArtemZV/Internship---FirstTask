@@ -2,7 +2,15 @@ function App(){
   this.init();
 }
 
-App.prototype = (function(){
+App.prototype.init = function(){
+
+  document.getElementById("addUserBtn").addEventListener("click", function(){
+    addUser();
+  });
+
+  document.getElementById("addReviewBtn").addEventListener("click", function(){
+    addReview();
+  });
 
   function addUser(){
     var name = document.getElementById("nameInput").value;
@@ -24,18 +32,6 @@ App.prototype = (function(){
       new Review(reviewText, user).addReviewToTable();
     }    
   }
-
-  return {
-    init: function(){      
-          document.getElementById("addUserBtn").addEventListener("click", function(){
-            addUser();
-          });
-      
-          document.getElementById("addReviewBtn").addEventListener("click", function(){
-            addReview();
-          });
-        }
-  }
-})();
-
+}
+  
 new App();
