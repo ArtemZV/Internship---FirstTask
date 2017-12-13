@@ -1,0 +1,46 @@
+.simpleButton{
+ width: 100px; 
+ height: 24px;
+}
+
+#usersTable{
+  border: 1px solid black;
+  display: block;
+  margin: 20px;  
+  width: 300px
+}
+
+#usersTable > tr td{
+  border-top: 1px solid black;
+}
+
+#usersTable > thead td:first-child, #usersTable > tr > td:first-child{
+  border-right: 1px solid black;
+  height: 40px;
+  width: 200px;
+}
+
+#usersTable > thead td:last-child{
+  width: 100px;
+}
+
+#usersTable table tr:first-child td{
+  border-top: none;
+}
+
+#usersTable table tr td{
+  width: 100px;
+}
+
+#usersBlock,#reviewBlock{
+  display: block;
+  margin: 20px;
+}
+
+#reviewBlock div{
+  margin: 10px 0;
+}
+
+#usersSelect{
+  width: 100px;
+}
