@@ -12,7 +12,7 @@
 <body>	
 	User input:
 	<div id="usersBlock">
-	 name: <input id="nameInput" placeholder="enter user name"> <button class="simpleButton" onclick=addUser(this)>add user</button>
+	 name: <input id="nameInput" placeholder="enter user name"> <button id="addUserBtn" class="simpleButton">add user</button>
 	
 	<table id="usersTable">
 	  <thead>
@@ -36,9 +36,10 @@
 	  <div>
 	    review: <textarea id="reviewText"></textarea><br>    
 	  </div>
-	  <button class="simpleButton" onclick=addReview()>add review</button>
+	  <button id="addReviewBtn" class="simpleButton">add review</button>
 	</div>
 	<script src="User.js"></script>
-	<script src="firstTask.js"></script>
+	<script src="Review.js"></script>
+	<script src="App.js"></script>
 </body>
 </html>
