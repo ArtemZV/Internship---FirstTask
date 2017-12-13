@@ -13,7 +13,7 @@ App.prototype.init = function(){
   
   function addReview(){
     var reviewText = document.getElementById('reviewText').value;
-    if (reviewText !=''){
+    if (reviewText != ''){
       new Review(reviewText, User.getUserByName(document.getElementById('usersSelect').value)); 
     }    
   }
@@ -27,8 +27,7 @@ App.prototype.init = function(){
   });
 
   eventEmmiter.on('newUserCreated', function(user){
-    User.users.push(user);
-    
+    User.users.push(user);    
     user.addUserToTableAndSelect();     
   });
 

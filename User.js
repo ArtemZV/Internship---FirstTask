@@ -10,18 +10,18 @@ User.prototype.addUserToTableAndSelect = function(){
     addUserToSelect(this);
 
     function addUserToTable(user){
-        var usersTable = document.getElementById("usersTable"),
-            newUserRow = document.createElement("tr"),
-            userNameCell = document.createElement("td");
+        var usersTable = document.getElementById('usersTable'),
+            newUserRow = document.createElement('tr'),
+            userNameCell = document.createElement('td');
 
         userNameCell.innerHTML = user.name;
 
-        var reviewCell = document.createElement("td"),
-            innerTable = document.createElement("table");
+        var reviewCell = document.createElement('td'),
+            innerTable = document.createElement('table');
 
         reviewCell.appendChild(innerTable);
 
-        newUserRow.setAttribute("data-user", user.name);
+        newUserRow.setAttribute('data-user', user.name);
         newUserRow.appendChild(userNameCell);
         newUserRow.appendChild(reviewCell);
 
@@ -29,8 +29,8 @@ User.prototype.addUserToTableAndSelect = function(){
     }
       
     function addUserToSelect(user){
-        var usersSelect = document.getElementById("usersSelect"),
-            newUser = document.createElement("option");
+        var usersSelect = document.getElementById('usersSelect'),
+            newUser = document.createElement('option');
 
         newUser.value = user.name;
         newUser.innerHTML = user.name;

@@ -12,6 +12,6 @@ Review.prototype.addReviewToTable = function(){;
 
     newReviewCell.innerHTML = this.reviewText; 
     
-    reviewsBlock.appendChild(document.createElement("tr"));
+    reviewsBlock.appendChild(document.createElement('tr'));
     reviewsBlock.lastChild.appendChild(newReviewCell);
 }
