@@ -20,7 +20,7 @@ User.prototype.addUserToTableAndSelect = function(){
             innerTable = document.createElement('table');
 
         reviewCell.appendChild(innerTable);
-
+            
         newUserRow.setAttribute('data-user', user.name);
         newUserRow.appendChild(userNameCell);
         newUserRow.appendChild(reviewCell);
