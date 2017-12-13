@@ -1,7 +1,9 @@
+
 function User(name){    
     this.name = name;
     this.reviews = [];
     User.users.push(this);
+    eventEmmiter.emit('newUserCreated', this);    
 }
 
 User.prototype.addUserToTableAndSelect = function(){
