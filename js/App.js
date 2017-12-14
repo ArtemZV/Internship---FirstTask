@@ -1,27 +1,34 @@
 function App(){
+  this.eventEmitter = new EventEmitter();
   this.userFrom = new UserForm(document.getElementById('userForm'));
-  this.usersTable = new UsersTable(document.getElementById('usersTable'));  
-  this.reviewForm = new ReviewForm(document.getElementById('reviewForm'));  
-
+  this.usersTable = new UsersTable(document.getElementById('usersTable'), this.eventEmitter);  
+  this.reviewForm = new ReviewForm(document.getElementById('reviewForm'));
   this.init();
 }
 
 App.prototype.init = function () {
-  var peter = new User('Peter'),
-      john = new User('John'),
-      tom = new User('Tom');      
-  
-  this.usersTable.renderUser(peter);
-  this.usersTable.renderUser(john);
-  this.usersTable.renderUser(tom);
-  
-  var reviewOnPeter = new Review('Some text', peter.id),
-      reviewOnPeter2 = new Review('Some text2', peter.id),
-      reviewOnJohn = new Review('Lore me text', john.id);
+  var peter = {name : 'Peter', id: Math.random() * 100},
+      john = {name : 'John', id: Math.random() * 100},
+      tom = {name : 'Tom', id: Math.random() * 100};
 
-  this.usersTable.renderReview(reviewOnPeter);
-  this.usersTable.renderReview(reviewOnPeter2);
-  this.usersTable.renderReview(reviewOnJohn);
+  this.eventEmitter.emit('userCreated', peter);
+  this.eventEmitter.emit('userCreated', john);
+  this.eventEmitter.emit('userCreated', tom);
+  
+  var reviewOnPeter = {reviewText:'Some text', id: Math.random() * 1000, userId: peter.id},
+      reviewOnPeter2 = {reviewText:'Some text2', id: Math.random() * 1000, userId: peter.id},
+      reviewOnJohn = {reviewText:'Lore me text', id: Math.random() * 1000, userId: john.id},
+      reviewOnJohn2 = {reviewText:'short text', id: Math.random() * 1000, userId: john.id},
+      reviewOnTom = {reviewText:'Very very very long text', id: Math.random() * 1000, userId: tom.id},
+      reviewOnTom2 = {reviewText:'unreadable text dsadasd', id: Math.random() * 1000, userId: tom.id};
+
+  this.eventEmitter.emit('reviewCreated', reviewOnPeter);
+  this.eventEmitter.emit('reviewCreated', reviewOnPeter2);
+  this.eventEmitter.emit('reviewCreated', reviewOnJohn);
+  this.eventEmitter.emit('reviewCreated', reviewOnJohn2);
+  this.eventEmitter.emit('reviewCreated', reviewOnTom);
+  this.eventEmitter.emit('reviewCreated', reviewOnTom2);
+  
 }
 
 window.addEventListener('DOMContentLoaded', function(){
