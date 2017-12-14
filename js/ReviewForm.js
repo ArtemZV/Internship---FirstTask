@@ -4,12 +4,7 @@ function ReviewForm(el) {
     this.btn = el.querySelector('#addReviewBtn');
     this.userSelect = el.querySelector('#usersSelect');
   
-    this.init();
-
-    var self = this;
-    eventEmmiter.on('newUserCreated', function(user){
-        self.addUserToSelect(user, self.userSelect);     
-    });    
+    this.init();   
 }
 
 ReviewForm.prototype.init = function () {
@@ -21,7 +16,7 @@ ReviewForm.prototype.addReview = function(){
         userName = this.userSelect.value  
     if (reviewText == '' || userName == '') return;
     var review = new Review(reviewText, UsersTable.getUserByName(userName)); 
-    eventEmmiter.emit('newReviewCreated', review);           
+    // eventEmmiter.emit('newReviewCreated', review);           
 }
 
 ReviewForm.prototype.addUserToSelect = function(user, select){
@@ -30,3 +25,8 @@ ReviewForm.prototype.addUserToSelect = function(user, select){
     newUser.innerHTML = user.name;
     select.appendChild(newUser);
 }
+
+// var self = this;
+// eventEmmiter.on('newUserCreated', function(user){
+//     self.addUserToSelect(user, self.userSelect);     
+// }); 

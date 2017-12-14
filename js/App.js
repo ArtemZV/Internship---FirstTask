@@ -5,6 +5,5 @@ function App(){
 }
 
 window.addEventListener('DOMContentLoaded', function(){
-  var eventEmitter = new EventEmitter();
   new App();
 })
