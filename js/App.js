@@ -1,13 +1,18 @@
 function App(){
-  this.ui = {};
+  this.userFrom;
+  this.usersTable;
+  this.reviewForm;  
   this.init();
 }
 
 App.prototype.init = function(){
-  this.ui.userFrom = new UserForm(document.getElementById('userForm'));
-  this.ui.reviewForm = new ReviewForm(document.getElementById('reviewForm'));
-}
+  this.eventEmitter = new EventEmitter(); 
   
+  this.userFrom = new UserForm(document.getElementById('userForm'));
+  this.usersTable = new UsersTable(document.getElementById('usersTable'));  
+  this.reviewForm = new ReviewForm(document.getElementById('reviewForm'));  
+}
+
 window.addEventListener('DOMContentLoaded', function(){
-  new App();
+  var App = new App();
 })

@@ -1,5 +1,5 @@
 function UserForm(el){
-    if (el) return;
+    if (!el) return;
     this.input = el.querySelector('#nameInput');
     this.btn = el.querySelector('#addUserBtn');
     this.handler = new UserFormHandler();
@@ -7,7 +7,7 @@ function UserForm(el){
 }
 
 UserForm.prototype.init = function () {
-    this.btn.addEventListener('click', this.addUser.bind(this));
+    this.btn.addEventListener('click', this.addUser.bind(this));    
 }
 
 UserForm.prototype.addUser = function(e) {
