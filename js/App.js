@@ -5,14 +5,13 @@ function App(){
   this.init();
 }
 
-App.prototype.init = function(){
-  this.eventEmitter = new EventEmitter(); 
-  
+App.prototype.init = function(){  
   this.userFrom = new UserForm(document.getElementById('userForm'));
   this.usersTable = new UsersTable(document.getElementById('usersTable'));  
   this.reviewForm = new ReviewForm(document.getElementById('reviewForm'));  
 }
 
 window.addEventListener('DOMContentLoaded', function(){
-  var App = new App();
+  var eventEmitter = new EventEmitter();
+  new App();
 })

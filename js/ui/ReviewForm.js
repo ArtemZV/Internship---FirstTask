@@ -4,8 +4,7 @@ function ReviewForm(el) {
     this.btn = el.querySelector('#addReviewBtn');
     this.userSelect = el.querySelector('#usersSelect');
 
-    this.handler = new ReviewFormHandler();
-    
+    this.handler = new ReviewFormHandler();    
     this.init();    
 }
 
@@ -13,7 +12,7 @@ ReviewForm.prototype.init = function () {
     var self = this;
     this.btn.addEventListener('click', this.addReview.bind(this));
 
-    App.eventEmmiter.on('newUserCreated', function(user){
+    eventEmmiter.on('newUserCreated', function(user){
         self.handler.addUserToSelect(user, self.userSelect);     
     });    
 }

@@ -19,10 +19,8 @@ UsersTableHandler.prototype.addUserToTable = function(user, table){
     table.appendChild(newUserRow);        
 };
 
-UsersTableHandler.prototype.addReviewToTable = function(review, table){;
-    var userRow = table.querySelector('[data-user="' + review.user.name + '"]'),
-        reviewsBlock = userRow.querySelector('table'),
-        newReviewCell = document.createElement('td');
+UsersTableHandler.prototype.addReviewToTable = function(review, reviewsBlock){;
+    var newReviewCell = document.createElement('td');
 
     newReviewCell.innerHTML = review.reviewText; 
     

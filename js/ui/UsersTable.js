@@ -8,12 +8,13 @@ function UsersTable(el){
 UsersTable.prototype.init = function () {
     var self = this;
 
-    App.eventEmmiter.on('newUserCreated', function(user){
+    eventEmmiter.on('newUserCreated', function(user){
         self.handler.addUserToTable(user, self.table);     
     });
 
-    App.eventEmmiter.on('newReviewCreated', function(review){
-        self.handler.addReviewToTable(review, self.table);     
+    eventEmmiter.on('newReviewCreated', function(review){
+        var userRow = self.table.querySelector('[data-user="' + review.user.name + '"]');        
+        self.handler.addReviewToTable(review, userRow.querySelector('table'));     
     });
 }
 
