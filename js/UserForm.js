@@ -2,7 +2,6 @@ function UserForm(el){
     if (!el) return;
     this.input = el.querySelector('#nameInput');
     this.btn = el.querySelector('#addUserBtn');
-    this.handler = new UserFormHandler();
     this.init();    
 }
 
@@ -10,9 +9,16 @@ UserForm.prototype.init = function () {
     this.btn.addEventListener('click', this.addUser.bind(this));    
 }
 
-UserForm.prototype.addUser = function(e) {
-    this.handler.addUser(this.input.value)
+UserForm.prototype.addUser = function() {
+    var name = this.input.value;    
+    if (!UserForm.isValidName(name) || UsersTable.isThisNameExist(name)) return;
+    var user = new User(name);
+    eventEmmiter.emit('newUserCreated', user);
 }
+
+UserForm.isValidName = function(name){
+    return (name != '' && name.match(/^[A-Za-zА-ЯЁа-яё]+$/));
+};
 
 /*
  function User(el){
