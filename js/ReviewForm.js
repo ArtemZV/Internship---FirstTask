@@ -13,15 +13,16 @@ ReviewForm.prototype.init = function () {
 
 ReviewForm.prototype.addReview = function(){ 
     var reviewText = this.textArea.value,
-        userName = this.userSelect.value;
-          
-    if (reviewText == '' || userName == '') return;
-    new Review(reviewText);          
+        userId = this.userSelect.getAttribute('data-user-id');
+
+    if (reviewText == '' || userId == '') return;
+    new Review(reviewText, userId);          
 }
 
 ReviewForm.prototype.addUserToSelect = function(user){
     var newUser = document.createElement('option');
     newUser.value = user.name;
     newUser.innerHTML = user.name;
+    newUser.setAttribute('data-user-id', user.id);
     this.select.appendChild(newUser);
 }
