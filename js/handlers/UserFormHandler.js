@@ -1,26 +1,15 @@
-function UserInput(app){
-    this.init(app);
+function UserFormHandler(){
 }
 
-UserInput.prototype.init = function(app){
-    this.App = app;
-    var self = this;
-    
-    document.getElementById('addUserBtn').addEventListener('click', function(){
-        addUser();
-    });
+UserFormHandler.prototype.addUser = function(name){    
+    if (!UserFormHandler.isValidName(name) || UserFormHandler.isThisNameExist(name)) return;
 
-    function addUser(){
-        var name = document.getElementById('nameInput').value;
-        if (UserInput.isValidName(name) && !UserInput.isThisNameExist(name)){
-            var user = new User(name);
-            UserInput.users.push(user);    
-            self.addUserToTableAndSelect.call(user);          
-        }
-    };
+    var user = new User(name);
+    UserFormHandler.users.push(user);   
+    self.addUserToTableAndSelect.call(user);
 }
 
-UserInput.prototype.addUserToTableAndSelect = function(){
+UserFormHandler.prototype.addUserToTableAndSelect = function(){
     addUserToTable(this);
     addUserToSelect(this);
 
@@ -53,19 +42,19 @@ UserInput.prototype.addUserToTableAndSelect = function(){
     };
 };
 
-UserInput.users = [];
+UserFormHandler.users = [];
 
-UserInput.isValidName = function(name){
+UserFormHandler.isValidName = function(name){
     return (name != '' && name.match(/^[A-Za-zА-ЯЁа-яё]+$/));
 };
 
-UserInput.isThisNameExist = function(name){
+UserFormHandler.isThisNameExist = function(name){
     return this.users.some(el => {
         return el.name == name
     });
 };
 
-UserInput.getUserByName = function (name) {
+UserFormHandler.getUserByName = function (name) {
     var user;
     this.users.some(el => {
         if (el.name == name) user = el;
