@@ -52,8 +52,9 @@ UsersTable.prototype.renderReview = function(review){
 }  
 
 UsersTable.prototype.deleteReview = function(reviewId){
-    var ReviewCell = this.table.querySelector('[data-review-id="' + reviewId + '"]');
-    ReviewCell.parentNode.removeChild(ReviewCell);
+    var reviewCell = this.table.querySelector('[data-review-id="' + reviewId + '"]'),
+        reviewParent = reviewCell.parentNode;
+    reviewParent.parentNode.removeChild(reviewParent);
 }
 
 UsersTable.prototype.deleteUser = function(userId){

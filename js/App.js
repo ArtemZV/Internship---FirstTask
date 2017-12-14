@@ -19,7 +19,6 @@ App.prototype.init = function(){
   this.usersTable.emitter.on('userDeleted', function(userId){
     self.reviewForm.emitter.emit('userDeleted', userId);
   });
-
 }
 
 window.addEventListener('DOMContentLoaded', function(){
