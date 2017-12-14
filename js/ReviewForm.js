@@ -3,20 +3,23 @@ function ReviewForm(el) {
     this.textArea = el.querySelector('#reviewTextInput');
     this.btn = el.querySelector('#addReviewBtn');
     this.userSelect = el.querySelector('#usersSelect');
+    this.emitter = new EventEmitter();
   
     this.init();   
 }
 
 ReviewForm.prototype.init = function () {
     this.btn.addEventListener('click', this.createReview.bind(this));
+    this.emitter.on('userCreated', this.addUserToSelect.bind(this));
+    this.emitter.on('userDeleted', this.deleteUserFromSelect.bind(this));    
 }
 
 ReviewForm.prototype.createReview = function(){ 
     var reviewText = this.textArea.value,
-        userId = this.userSelect.getAttribute('data-user-id');
+        userId = this.userSelect.selectedOptions[0].getAttribute('data-user-id');
 
     if (reviewText == '' || userId == '') return;
-    new Review(reviewText, userId);          
+    this.emitter.emit('reviewCreated', {reviewText: reviewText, id: Math.random() * 1000, userId: userId});         
 }
 
 ReviewForm.prototype.addUserToSelect = function(user){
@@ -24,5 +27,10 @@ ReviewForm.prototype.addUserToSelect = function(user){
     newUser.value = user.name;
     newUser.innerHTML = user.name;
     newUser.setAttribute('data-user-id', user.id);
-    this.select.appendChild(newUser);
+    this.userSelect.appendChild(newUser);
+}
+
+ReviewForm.prototype.deleteUserFromSelect = function(userId){
+    var user = this.userSelect.querySelector('[data-user-id="' + userId + '"]');
+    user.parentNode.removeChild(user);
 }

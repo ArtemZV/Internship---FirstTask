@@ -7,14 +7,19 @@ function UsersTable(el){
 
 UsersTable.prototype.init = function () {
     this.emitter.on('userCreated', this.renderUser.bind(this));
-    this.emitter.on('reviewCreated', this.renderReview.bind(this));    
+    this.emitter.on('reviewCreated', this.renderReview.bind(this));
 }
 
 UsersTable.prototype.renderUser = function(user){
     var newUserRow = document.createElement('tr'),
         userNameCell = document.createElement('td');
 
+    var deleteUserwBtn = document.createElement('button');
+        deleteUserwBtn.innerHTML = 'X';
+        deleteUserwBtn.addEventListener('click', () => this.deleteUser(user.id));
+
     userNameCell.innerHTML = user.name;
+    userNameCell.appendChild(deleteUserwBtn);
 
     var reviewCell = document.createElement('td'),
         innerTable = document.createElement('table');
@@ -28,24 +33,31 @@ UsersTable.prototype.renderUser = function(user){
     this.table.appendChild(newUserRow);        
 };
 
-UsersTable.prototype.renderReview = function(review){;
+UsersTable.prototype.renderReview = function(review){
+    var deleteReviewBtn = document.createElement('button');
+    deleteReviewBtn.innerHTML = 'X';
+    deleteReviewBtn.addEventListener('click', () => this.deleteReview(review.id));
+
     var newReviewCell = document.createElement('td');
     newReviewCell.innerHTML = review.reviewText; 
     newReviewCell.setAttribute('data-review-id', review.id);
+    newReviewCell.appendChild(deleteReviewBtn);
 
     var userRow = this.table.querySelector('[data-user-id="' + review.userId + '"]');
     var userReviewsCell = userRow.querySelector('table');
     
     userReviewsCell.appendChild(document.createElement('tr'));
     userReviewsCell.lastChild.appendChild(newReviewCell);
+
 }  
 
-UsersTable.prototype.deleteReview = function(review){
-    var ReviewCell = this.table.querySelector('[data-review-id="' + review.id + '"]');
+UsersTable.prototype.deleteReview = function(reviewId){
+    var ReviewCell = this.table.querySelector('[data-review-id="' + reviewId + '"]');
     ReviewCell.parentNode.removeChild(ReviewCell);
 }
 
-UsersTable.prototype.deleteUser = function(user){
-    var userRow = this.table.querySelector('[data-user-id="' + user.id + '"]');
+UsersTable.prototype.deleteUser = function(userId){
+    var userRow = this.table.querySelector('[data-user-id="' + userId + '"]');
     userRow.parentNode.removeChild(userRow);
+    this.emitter.emit('userDeleted', userId);
 }
