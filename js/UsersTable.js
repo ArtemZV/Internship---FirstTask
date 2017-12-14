@@ -21,12 +21,12 @@ UsersTable.prototype.renderUser = function(user){
     this.table.appendChild(newUserRow);        
 };
 
-UsersTable.prototype.renderReview = function(review, userId){;
+UsersTable.prototype.renderReview = function(review){;
     var newReviewCell = document.createElement('td');
     newReviewCell.innerHTML = review.reviewText; 
     newReviewCell.setAttribute('data-review-id', review.id);
 
-    var userRow = this.table.querySelector('[data-user-id="' + userId + '"]');
+    var userRow = this.table.querySelector('[data-user-id="' + review.userId + '"]');
     var userReviewsCell = userRow.querySelector('table');
     
     userReviewsCell.appendChild(document.createElement('tr'));
