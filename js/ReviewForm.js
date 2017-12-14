@@ -13,14 +13,15 @@ ReviewForm.prototype.init = function () {
 
 ReviewForm.prototype.addReview = function(){ 
     var reviewText = this.textArea.value,
-        userName = this.userSelect.value  
+        userName = this.userSelect.value;
+          
     if (reviewText == '' || userName == '') return;
     new Review(reviewText);          
 }
 
-ReviewForm.prototype.addUserToSelect = function(user, select){
+ReviewForm.prototype.addUserToSelect = function(user){
     var newUser = document.createElement('option');
     newUser.value = user.name;
     newUser.innerHTML = user.name;
-    select.appendChild(newUser);
+    this.select.appendChild(newUser);
 }
