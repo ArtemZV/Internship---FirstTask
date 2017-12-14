@@ -1,9 +1,10 @@
 function UserForm(){
     var self = this;
     this.formInput = document.getElementById('nameInput');
+    this.formBtn = document.getElementById('addUserBtn');
 
-    this.formInput.addEventListener('change', function(){
-        console.log(this.value);        
+    this.formBtn.addEventListener('click', function(){
+        console.log(self.formInput.value);        
     });
 }
 
