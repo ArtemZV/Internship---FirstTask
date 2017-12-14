@@ -1,7 +1,7 @@
 function UsersTable(el, emitter){
     if (!el) return;
     this.table = el;
-    this.emitter = emitter;
+    this.emitter = new EventEmitter();
     this.init();
 }
 
