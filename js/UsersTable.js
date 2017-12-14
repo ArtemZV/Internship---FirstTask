@@ -13,18 +13,18 @@ UsersTable.prototype.renderUser = function(user, table){
 
     reviewCell.appendChild(innerTable);
         
-    newUserRow.setAttribute('data-user', user.name);
+    newUserRow.setAttribute('data-user-id', user.id);
     newUserRow.appendChild(userNameCell);
     newUserRow.appendChild(reviewCell);
 
     table.appendChild(newUserRow);        
 };
 
-UsersTable.prototype.renderReview = function(review, reviewsBlock){;
+UsersTable.prototype.renderReview = function(review){;
     var newReviewCell = document.createElement('td');
 
     newReviewCell.innerHTML = review.reviewText; 
     
-    reviewsBlock.appendChild(document.createElement('tr'));
-    reviewsBlock.lastChild.appendChild(newReviewCell);
+    // reviewsBlock.appendChild(document.createElement('tr'));
+    // reviewsBlock.lastChild.appendChild(newReviewCell);
 }  
