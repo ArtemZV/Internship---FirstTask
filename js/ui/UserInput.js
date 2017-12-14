@@ -1,11 +1,26 @@
-
-function User(name){    
-    this.name = name;
-    this.reviews = [];
-    eventEmmiter.emit('newUserCreated', this);    
+function UserInput(app){
+    this.init(app);
 }
 
-User.prototype.addUserToTableAndSelect = function(){
+UserInput.prototype.init = function(app){
+    this.App = app;
+    var self = this;
+    
+    document.getElementById('addUserBtn').addEventListener('click', function(){
+        addUser();
+    });
+
+    function addUser(){
+        var name = document.getElementById('nameInput').value;
+        if (UserInput.isValidName(name) && !UserInput.isThisNameExist(name)){
+            var user = new User(name);
+            UserInput.users.push(user);    
+            self.addUserToTableAndSelect.call(user);          
+        }
+    };
+}
+
+UserInput.prototype.addUserToTableAndSelect = function(){
     addUserToTable(this);
     addUserToSelect(this);
 
@@ -26,7 +41,7 @@ User.prototype.addUserToTableAndSelect = function(){
         newUserRow.appendChild(reviewCell);
 
         usersTable.appendChild(newUserRow);
-    }
+    };
       
     function addUserToSelect(user){
         var usersSelect = document.getElementById('usersSelect'),
@@ -35,25 +50,25 @@ User.prototype.addUserToTableAndSelect = function(){
         newUser.value = user.name;
         newUser.innerHTML = user.name;
         usersSelect.appendChild(newUser);
-    }  
+    };
 };
 
-User.users =  [];
+UserInput.users = [];
 
-User.isValidName = function(name){
+UserInput.isValidName = function(name){
     return (name != '' && name.match(/^[A-Za-zА-ЯЁа-яё]+$/));
 };
 
-User.isThisNameExist = function(name){
-    return User.users.some(el => {
+UserInput.isThisNameExist = function(name){
+    return this.users.some(el => {
         return el.name == name
     });
 };
 
-User.getUserByName = function (name) {
+UserInput.getUserByName = function (name) {
     var user;
-    User.users.some(el => {
+    this.users.some(el => {
         if (el.name == name) user = el;
     }); 
     return user;
-}
+};
