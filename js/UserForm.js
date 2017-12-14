@@ -12,5 +12,5 @@ UserForm.prototype.init = function () {
 UserForm.prototype.addUser = function() {
     var name = this.input.value;    
     if (name == '' || name.match(/^[A-Za-zА-ЯЁа-яё]+$/)) return;
-    var user = new User(name);
+    new User(name);
 }
