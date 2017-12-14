@@ -32,12 +32,12 @@
   width: 100px;
 }
 
-#usersBlock,#reviewBlock{
+#usersBlock,#reviewForm{
   display: block;
   margin: 20px;
 }
 
-#reviewBlock div{
+#reviewForm div{
   margin: 10px 0;
 }
 

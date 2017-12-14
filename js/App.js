@@ -4,8 +4,10 @@ function App(){
 }
 
 App.prototype.init = function(){
-  this.ui.userInput = new UserInput(this);
-  this.ui.reviewInput = new ReviewInput(this);
+  this.ui.userFrom = new UserForm(document.getElementById('userForm'));
+  this.ui.reviewForm = new ReviewForm(document.getElementById('reviewForm'));
 }
   
-new App();
+window.addEventListener('DOMContentLoaded', function(){
+  new App();
+})

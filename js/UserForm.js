@@ -1,11 +1,14 @@
-function UserForm(){
-    var self = this;
-    this.formInput = document.getElementById('nameInput');
-    this.formBtn = document.getElementById('addUserBtn');
-
-    this.formBtn.addEventListener('click', function(){
-        console.log(self.formInput.value);        
-    });
+function UserForm(el){
+    if (el) return;
+    this.input = el.querySelector('#nameInput');
+    this.btn = el.querySelector('#addUserBtn');
+    this.init();    
 }
 
-new UserForm();
+UserForm.prototype.init = function () {
+    this.btn.addEventListener('click', this.addUser.bind(this));
+}
+
+UserForm.prototype.addUser = function(e) {
+    console.log(this.input.value)
+}

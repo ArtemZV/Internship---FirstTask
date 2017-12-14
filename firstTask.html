@@ -12,7 +12,9 @@
 <body>	
 	User input:
 	<div id="usersBlock">
-	 name: <input id="nameInput" placeholder="enter user name"> <button id="addUserBtn" class="simpleButton">add user</button>
+		<div id="userForm">
+				name: <input id="nameInput" placeholder="enter user name"> <button id="addUserBtn" class="simpleButton">add user</button>				
+		</div>
 	
 	<table id="usersTable">
 	  <thead>
@@ -29,12 +31,12 @@
 	
 	</div>
 	Review:
-	<div id="reviewBlock">
+	<div id="reviewForm">
 	  <div>
 	    select user: <select id="usersSelect"></select><br>    
 	  </div>
 	  <div>
-	    review: <textarea id="reviewText"></textarea><br>    
+	    review: <textarea id="reviewTextInput"></textarea><br>    
 	  </div>
 	  <button id="addReviewBtn" class="simpleButton">add review</button>
 	</div>
@@ -43,7 +45,8 @@
 	<script src="js/model/Review.js"></script>
 	<script src="js/ui/UserInput.js"></script>
 	<script src="js/ui/ReviewInput.js"></script>	
+	<script src="js/UserForm.js"></script>
+	<script src="js/ReviewForm.js"></script>	
 	<script src="js/App.js"></script>
-	<script src="js/UserForm.js"></script>	
 </body>
 </html>
