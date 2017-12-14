@@ -1,4 +1,4 @@
-function UsersTable(el, emitter){
+function UsersTable(el){
     if (!el) return;
     this.table = el;
     this.emitter = new EventEmitter();

@@ -1,7 +1,7 @@
 function App(){
   this.users = [];
   this.userFrom = new UserForm(document.getElementById('userForm'));
-  this.usersTable = new UsersTable(document.getElementById('usersTable'), this.eventEmitter);  
+  this.usersTable = new UsersTable(document.getElementById('usersTable'));  
   this.reviewForm = new ReviewForm(document.getElementById('reviewForm'));
   this.init();
 }
