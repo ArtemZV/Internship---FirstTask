@@ -21,12 +21,12 @@ UsersTable.prototype.renderUser = function(user){
     this.table.appendChild(newUserRow);        
 };
 
-UsersTable.prototype.renderReview = function(review){;
+UsersTable.prototype.renderReview = function(review, userId){;
     var newReviewCell = document.createElement('td');
     newReviewCell.innerHTML = review.reviewText; 
     newReviewCell.setAttribute('data-review-id', review.id);
 
-    var userRow = this.table.querySelector('[data-user-id="' + review.user.id + '"]');
+    var userRow = this.table.querySelector('[data-user-id="' + userId + '"]');
     var userReviewsCell = userRow.querySelector('table');
     
     userReviewsCell.appendChild(document.createElement('tr'));
@@ -34,9 +34,6 @@ UsersTable.prototype.renderReview = function(review){;
 }  
 
 UsersTable.prototype.deleteReview = function(review){
-    var user = review.user;
-    var index = user.reviews.indexOf(review);
-    index == -1 ? false : user.reviews.splice(index, 1);
     var ReviewCell = this.table.querySelector('[data-review-id="' + review.id + '"]');
     element.parentNode.removeChild(ReviewCell);
 }

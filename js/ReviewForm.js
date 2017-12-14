@@ -8,10 +8,10 @@ function ReviewForm(el) {
 }
 
 ReviewForm.prototype.init = function () {
-    this.btn.addEventListener('click', this.addReview.bind(this));
+    this.btn.addEventListener('click', this.createReview.bind(this));
 }
 
-ReviewForm.prototype.addReview = function(){ 
+ReviewForm.prototype.createReview = function(){ 
     var reviewText = this.textArea.value,
         userId = this.userSelect.getAttribute('data-user-id');
 
