@@ -6,19 +6,10 @@ function App(){
 }
 
 App.prototype.init = function(){
-  var self = this;
-  this.userFrom.emitter.on('userCreated', function(user){
-    self.usersTable.renderUser.call(self.usersTable, user);
-    self.reviewForm.addUserToSelect.call(self.reviewForm, user);
-  }); 
-  
-  this.reviewForm.emitter.on('reviewCreated', function(review){
-    self.usersTable.renderReview.call(self.usersTable, review)
-  });
-
-  this.usersTable.emitter.on('userDeleted', function(userId){
-    self.reviewForm.deleteUserFromSelect.call(self.reviewForm, userId);
-  });
+  this.userFrom.emitter.on('userCreated', this.usersTable.renderUser.bind(this.usersTable));    
+  this.userFrom.emitter.on('userCreated', this.reviewForm.addUserToSelect.bind(this.reviewForm)); 
+  this.reviewForm.emitter.on('reviewCreated', this.usersTable.renderReview.bind(this.usersTable));
+  this.usersTable.emitter.on('userDeleted', this.reviewForm.deleteUserFromSelect.bind(this.reviewForm));  
 }
 
 window.addEventListener('DOMContentLoaded', function(){
