@@ -7,7 +7,7 @@
   border: 1px solid black;
   display: block;
   margin: 20px;  
-  width: 300px
+  width: 400px
 }
 
 #usersTable > tr td{
@@ -20,16 +20,12 @@
   width: 200px;
 }
 
-#usersTable > thead td:last-child{
-  width: 100px;
+#usersTable > tr > td, #usersTable table tr td{
+  width: 200px;
 }
 
 #usersTable table tr:first-child td{
   border-top: none;
-}
-
-#usersTable table tr td{
-  width: 100px;
 }
 
 #usersBlock,#reviewForm{

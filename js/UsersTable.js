@@ -1,13 +1,7 @@
 function UsersTable(el){
     if (!el) return;
     this.table = el;
-    this.emitter = new EventEmitter();
-    this.init();
-}
-
-UsersTable.prototype.init = function () {
-    this.emitter.on('userCreated', this.renderUser.bind(this));
-    this.emitter.on('reviewCreated', this.renderReview.bind(this));
+    this.emitter = new EventEmitter();    
 }
 
 UsersTable.prototype.renderUser = function(user){
