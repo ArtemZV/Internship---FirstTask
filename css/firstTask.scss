@@ -21,8 +21,14 @@ $blackBorder: 1px solid black;
     width: $tableWidth;
     border-radius: 5px;
 
-    > tr td{
+    > tr{
+         > td{
+        padding-left: 5px;
+        }
+
+        td{
         border-top: $blackBorder;
+        }
     }
 
     thead tr {
@@ -35,7 +41,7 @@ $blackBorder: 1px solid black;
         width: 200px;
     }
 
-    > tr > td, table tr td{
+    td{
         width: 200px;
     }
 
@@ -49,6 +55,11 @@ $blackBorder: 1px solid black;
 
     table td.isNotAproved{
         background: gray
+    }
+
+    button{
+        float: right;
+        margin-right: 3px;
     }
 }
 
