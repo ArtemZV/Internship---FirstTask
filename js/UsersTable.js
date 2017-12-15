@@ -1,7 +1,7 @@
 function UsersTable(el){
     if (!el) return;
     this.table = el;
-    this.emitter = new EventEmitter();    
+    this.emitter = new EventEmitter();
 }
 
 UsersTable.prototype.renderUser = function(user){
@@ -42,7 +42,6 @@ UsersTable.prototype.renderReview = function(review){
     
     userReviewsCell.appendChild(document.createElement('tr'));
     userReviewsCell.lastChild.appendChild(newReviewCell);
-
 }  
 
 UsersTable.prototype.deleteReview = function(reviewId){

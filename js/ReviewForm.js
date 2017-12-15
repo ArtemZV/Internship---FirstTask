@@ -9,8 +9,7 @@ function ReviewForm(el) {
 }
 
 ReviewForm.prototype.init = function () {
-    this.btn.addEventListener('click', this.createReview.bind(this));
-    this.emitter.on('userDeleted', this.deleteUserFromSelect.bind(this));    
+    this.btn.addEventListener('click', this.createReview.bind(this));   
 }
 
 ReviewForm.prototype.createReview = function(){ 
