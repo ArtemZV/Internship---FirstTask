@@ -1,17 +1,19 @@
 function UserForm(el){
     if (!el) return;
-    this.input = el.querySelector('#nameInput');
-    this.btn = el.querySelector('#addUserBtn');
-    this.emitter = new EventEmitter();    
+    this.firstNameInput = el.querySelector('#firstNameInput');
+    this.lastNameInput = el.querySelector('#lastNameInput');    
+    this.btn = el.querySelector('#addUserBtn'); 
+    this.emitter = new EventEmitter();
     this.init();    
 }
 
 UserForm.prototype.init = function () {
-    this.btn.addEventListener('click', this.createUser.bind(this));   
+    this.btn.addEventListener('click', this.createUser.bind(this));  
 }
 
 UserForm.prototype.createUser = function() {
-    var name = this.input.value;    
-    if (name == '' || !name.match(/^[A-Za-zА-ЯЁа-яё]+$/)) return;
-    this.emitter.emit('userCreated', {name: name, id: Math.random() * 100});
+    if (this.firstNameInput.value.trim() == '' || this.lastNameInput.value.trim() == '') return;
+    var name = `${this.firstNameInput.value} ${this.lastNameInput.value}`;    
+    if (name.trim() == '' || !name.match(/^[A-Za-zА-ЯЁа-яё\s]+$/)) return;
+    this.emitter.emit('createdUser', {name: name, id: Math.random() * 100, isConst: false});
 }

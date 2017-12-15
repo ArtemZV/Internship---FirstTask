@@ -10,36 +10,43 @@
 
 </head>
 <body>	
-	User input:
-	<div id="usersBlock">
-		<div id="userForm">
-				name: <input id="nameInput" placeholder="enter user name"> <button id="addUserBtn" class="simpleButton">add user</button>				
-		</div>
-	
-	<table id="usersTable">
-	  <thead>
-	    <tr>
-	      <td>
-	        user
-	      </td>
-	      <td>
-	        reviews
-	      </td>
-	  </tr>
-	  </thead>  
-	</table>
-	
+	<div class="block">
+			User input:
+			<div id="usersBlock">
+				<div id="userForm">
+						<div>First name: <input id="firstNameInput" placeholder="enter first name"></div>
+						<div>Last name: <input id="lastNameInput" placeholder="enter last name"></div>
+						<button id="addUserBtn" class="simpleButton">add user</button>				
+				</div>
+			
+				<table id="usersTable">
+					<thead>
+						<tr>
+							<td>
+								user
+							</td>
+							<td>
+								reviews
+							</td>
+					</tr>
+					</thead>  
+				</table>			
+			</div>
 	</div>
-	Review:
-	<div id="reviewForm">
-	  <div>
-	    select user: <select id="usersSelect"></select><br>    
-	  </div>
-	  <div>
-	    review: <textarea id="reviewTextInput"></textarea><br>    
-	  </div>
-	  <button id="addReviewBtn" class="simpleButton">add review</button>
+	
+	<div class="block">
+			Review:
+			<div id="reviewForm">
+				<div>
+					select user: <select id="usersSelect"></select>    
+				</div>
+				<div>
+					review: <textarea id="reviewTextInput"></textarea>    
+				</div>
+				<button id="addReviewBtn" class="simpleButton">add review</button>
+			</div>
 	</div>
+	
 	<script src="js/utils/EventEmitter.js"></script>
 	<script src="js/UserForm.js"></script>
 	<script src="js/UsersTable.js"></script>	

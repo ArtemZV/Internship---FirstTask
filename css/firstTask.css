@@ -1,42 +1,44 @@
-.simpleButton{
- width: 100px; 
- height: 24px;
-}
+.simpleButton {
+  width: 150px;
+  height: 24px; }
 
-#usersTable{
+.block {
+  display: inline-block;
+  width: 49%; }
+
+#userForm div {
+  margin-bottom: 10px; }
+
+#usersTable {
   border: 1px solid black;
-  display: block;
-  margin: 20px;  
-  width: 400px
-}
-
-#usersTable > tr td{
-  border-top: 1px solid black;
-}
-
-#usersTable > thead td:first-child, #usersTable > tr > td:first-child{
-  border-right: 1px solid black;
-  height: 40px;
-  width: 200px;
-}
-
-#usersTable > tr > td, #usersTable table tr td{
-  width: 200px;
-}
-
-#usersTable table tr:first-child td{
-  border-top: none;
-}
-
-#usersBlock,#reviewForm{
-  display: block;
   margin: 20px;
-}
+  width: 400px;
+  border-radius: 5px; }
+  #usersTable > tr td {
+    border-top: 1px solid black; }
+  #usersTable thead tr {
+    background: peru; }
+  #usersTable thead td:first-child, #usersTable > tr > td:first-child {
+    border-right: 1px solid black;
+    height: 40px;
+    width: 200px; }
+  #usersTable > tr > td, #usersTable table tr td {
+    width: 200px; }
+  #usersTable table tr:first-child td {
+    border-top: none; }
+  #usersTable tr.isConst {
+    background: #CF0000; }
+  #usersTable table td.isNotAproved {
+    background: gray; }
 
-#reviewForm div{
-  margin: 10px 0;
-}
+#usersBlock, #reviewForm {
+  margin: 20px;
+  display: table; }
 
-#usersSelect{
-  width: 100px;
-}
+#reviewForm div {
+  margin-bottom: 10px; }
+
+#usersSelect {
+  width: 150px; }
+
+/*# sourceMappingURL=firstTask.css.map */

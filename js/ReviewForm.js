@@ -4,12 +4,15 @@ function ReviewForm(el) {
     this.btn = el.querySelector('#addReviewBtn');
     this.userSelect = el.querySelector('#usersSelect');
     this.emitter = new EventEmitter();
-  
     this.init();   
 }
 
 ReviewForm.prototype.init = function () {
-    this.btn.addEventListener('click', this.createReview.bind(this));   
+    this.btn.addEventListener('click', this.createReview.bind(this));
+
+    this.emitter.on('addUserToSelect', this.addUserToSelect.bind(this));
+    this.emitter.on('deletedUser', this.deleteUserFromSelect.bind(this)); 
+    this.emitter.on('addAllUsersToSelect', this.addAllUsersToSelect.bind(this));   
 }
 
 ReviewForm.prototype.createReview = function(){ 
@@ -17,10 +20,12 @@ ReviewForm.prototype.createReview = function(){
         userId = this.userSelect.selectedOptions[0].getAttribute('data-user-id');
 
     if (reviewText == '' || userId == '') return;
-    this.emitter.emit('reviewCreated', {reviewText: reviewText, id: Math.random() * 1000, userId: userId});         
+    if (confirm('Are you sure to add review?'))
+    this.emitter.emit('createdReview', {reviewText: reviewText, id: Math.random() * 1000, userId: userId, isAproved: false});         
 }
 
 ReviewForm.prototype.addUserToSelect = function(user){
+    if (typeof user !== 'object') return;
     var newUser = document.createElement('option');
     newUser.value = user.name;
     newUser.innerHTML = user.name;
@@ -29,6 +34,13 @@ ReviewForm.prototype.addUserToSelect = function(user){
 }
 
 ReviewForm.prototype.deleteUserFromSelect = function(userId){
+    if (!Number.isFinite(userId)) return;
     var user = this.userSelect.querySelector('[data-user-id="' + userId + '"]');
     user.parentNode.removeChild(user);
+}
+
+ReviewForm.prototype.addAllUsersToSelect = function(usersArr){
+    usersArr.forEach(user => {
+        this.addUserToSelect(user)
+    });
 }

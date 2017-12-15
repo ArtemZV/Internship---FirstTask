@@ -1,0 +1,66 @@
+$tableWidth:    400px;
+$blackBorder: 1px solid black;
+
+.simpleButton{
+    width: 150px; 
+    height: 24px;
+}
+
+.block{
+    display: inline-block;
+    width: 49%
+}
+
+#userForm div{
+    margin-bottom: 10px;
+}
+
+#usersTable{
+    border: $blackBorder;
+    margin: 20px;  
+    width: $tableWidth;
+    border-radius: 5px;
+
+    > tr td{
+        border-top: $blackBorder;
+    }
+
+    thead tr {
+        background: peru;
+    }
+
+    thead td:first-child,  > tr > td:first-child{
+        border-right: $blackBorder;
+        height: 40px;
+        width: 200px;
+    }
+
+    > tr > td, table tr td{
+        width: 200px;
+    }
+
+    table tr:first-child td{
+        border-top: none;
+    }
+
+    tr.isConst{
+        background: #CF0000;
+    }
+
+    table td.isNotAproved{
+        background: gray
+    }
+}
+
+#usersBlock,#reviewForm{
+    margin: 20px;
+    display: table;
+}
+
+#reviewForm div{
+    margin-bottom: 10px;
+}
+
+#usersSelect{
+    width: 150px;
+}
