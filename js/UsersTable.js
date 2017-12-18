@@ -7,8 +7,19 @@ function UsersTable(el){
 
 UsersTable.prototype.init = function(){
     this.emitter.on('renderAllUsers', this.renderAllUsers.bind(this));
-    this.emitter.on('renderUser', this.renderUser.bind(this));    
+    this.emitter.on('renderUser', this.renderUser.bind(this));  
+    this.emitter.on('updateUser', this.updateUser.bind(this));
     this.emitter.on('renderReview', this.renderReview.bind(this));
+    this.table.addEventListener('click', this.editUser.bind(this));
+}
+
+UsersTable.prototype.editUser = function(event){
+    if (event.target.classList.contains('userCell') && event.target.closest('tr').classList.contains('isConst')) {
+        var firstName = event.target.getAttribute('data-user-firstName'),
+            lastName = event.target.getAttribute('data-user-lastName'),
+            id = event.target.closest('tr').getAttribute('data-user-id');
+        this.emitter.emit('editUser', {firstName: firstName, lastName: lastName, id: id, isConst: true});
+    }
 }
 
 UsersTable.prototype.renderUser = function(user){
@@ -20,7 +31,13 @@ UsersTable.prototype.renderUser = function(user){
         deleteUserwBtn.innerHTML = 'X';
         deleteUserwBtn.addEventListener('click', () => this.deleteUser(user.id));
 
-    userNameCell.innerHTML = user.name;
+    var userNameSpan = document.createElement('span');
+    userNameSpan.innerHTML = user.name;
+    userNameSpan.setAttribute('data-user-firstName', user.firstName);
+    userNameSpan.setAttribute('data-user-lastName', user.lastName);
+    userNameSpan.classList.add('userCell');
+    
+    userNameCell.appendChild(userNameSpan);
     userNameCell.appendChild(deleteUserwBtn);
 
     var reviewCell = document.createElement('td'),
@@ -28,12 +45,21 @@ UsersTable.prototype.renderUser = function(user){
 
     reviewCell.appendChild(innerTable);
         
-    newUserRow.setAttribute('data-user-id', user.id);
+    newUserRow.setAttribute('data-user-id', user.id);        
     if (user.isConst) newUserRow.classList.add('isConst');    
     newUserRow.appendChild(userNameCell);
     newUserRow.appendChild(reviewCell);
 
     this.table.appendChild(newUserRow);        
+};
+
+UsersTable.prototype.updateUser = function(user){
+    if (typeof user !== 'object') return;
+    var userRow = this.table.querySelector('[data-user-id="' + user.id + '"]'),
+        userNameSpan = userRow.querySelector('span');
+    userNameSpan.innerHTML = `${user.firstName} ${user.lastName}`;
+    userNameSpan.setAttribute('data-user-firstName', user.firstName);
+    userNameSpan.setAttribute('data-user-lastName', user.lastName);
 };
 
 UsersTable.prototype.renderReview = function(review){

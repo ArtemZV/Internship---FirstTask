@@ -3,17 +3,15 @@ function ReviewForm(el) {
     this.textArea = el.querySelector('#reviewTextInput');
     this.btn = el.querySelector('#addReviewBtn');
     this.userSelect = el.querySelector('#usersSelect');
-    this.dialog = new Dialog(document.getElementById('dialog'), 'Are you sure to add review?');
     this.emitter = new EventEmitter();
     this.init();   
 }
 
 ReviewForm.prototype.init = function () {
     this.btn.addEventListener('click', this.createReview.bind(this));
-
     this.emitter.on('addUserToSelect', this.addUserToSelect.bind(this));
-    this.emitter.on('deletedUser', this.deleteUserFromSelect.bind(this)); 
     this.emitter.on('addAllUsersToSelect', this.addAllUsersToSelect.bind(this));   
+    this.emitter.on('deletedUser', this.deleteUserFromSelect.bind(this)); 
 }
 
 ReviewForm.prototype.createReview = function(){ 
@@ -21,8 +19,8 @@ ReviewForm.prototype.createReview = function(){
         userId = this.userSelect.selectedOptions[0].getAttribute('data-user-id');
 
     if (reviewText == '' || userId == '') return;
-    this.dialog.dialog.onOKFunc =  () => { this.emitter.emit('createdReview', {reviewText: reviewText, id: Math.random() * 1000, userId: userId, isAproved: false})};
-    this.dialog.openDialog();                
+    this.emitter.emit('createdReview', {reviewText: reviewText, id: Math.random() * 1000, userId: userId, isAproved: false});                
+    this.emitter.emit('showPopup', 'You have added reivew');
 }
 
 ReviewForm.prototype.addUserToSelect = function(user){

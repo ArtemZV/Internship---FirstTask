@@ -54,55 +54,42 @@
 #usersSelect {
   width: 150px; }
 
-#dialog {
-  display: none; }
-  #dialog .dialogLayout {
-    position: absolute;
-    left: 0;
-    top: 0;
+#popup {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  right: -400px;
+  top: 30%;
+  width: 400px;
+  height: 150px;
+  border-radius: 5px;
+  background: mintcream;
+  border: 1px solid #d31111; }
+  #popup .popupHeader {
+    font-size: 20px;
     width: 100%;
-    min-height: 800px;
-    height: 100%;
-    opacity: 0.4;
-    background: #615c5c;
-    z-index: 2; }
-  #dialog .dialogPopup {
-    position: absolute;
-    z-index: 3;
-    left: 30%;
-    top: 30%;
-    width: 400px;
-    height: 200px;
-    border-radius: 5px;
-    background: mintcream;
-    border: 1px solid #d31111; }
-    #dialog .dialogPopup .dialogHeader {
-      font-size: 20px;
-      width: 100%;
+    height: 40px;
+    border-radius: 4px 4px 0 0;
+    background: #d31111;
+    color: mintcream;
+    text-align: center;
+    padding-top: 10px;
+    box-sizing: border-box; }
+  #popup .popupBody {
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 20px; }
+  #popup .popupButtons {
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    padding-left: 35%; }
+    #popup .popupButtons .popupBtn {
+      width: 125px;
       height: 40px;
-      border-radius: 4px 4px 0 0;
-      background: #d31111;
-      color: mintcream;
-      text-align: center;
-      padding-top: 10px;
-      box-sizing: border-box; }
-    #dialog .dialogPopup .dialogBody {
-      width: 100%;
-      height: 110px;
-      text-align: center;
-      box-sizing: border-box;
-      padding-top: 20px; }
-    #dialog .dialogPopup .dialogButtons {
-      width: 100%;
-      height: 50px;
-      box-sizing: border-box;
-      padding-left: 60px; }
-      #dialog .dialogPopup .dialogButtons .dialogBtn {
-        width: 125px;
-        height: 40px;
-        font-size: 20px;
-        border-radius: 4px; }
-      #dialog .dialogPopup .dialogButtons .dialogBtn:first-child {
-        margin-right: 30px; }
+      font-size: 20px;
+      border-radius: 4px; }
 
 /*# sourceMappingURL=firstTask.css.map */

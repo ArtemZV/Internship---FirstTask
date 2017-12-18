@@ -9,11 +9,27 @@ function UserForm(el){
 
 UserForm.prototype.init = function () {
     this.btn.addEventListener('click', this.createUser.bind(this));  
+    this.emitter.on('editUser', this.editUser.bind(this));
 }
 
-UserForm.prototype.createUser = function() {
+UserForm.prototype.createUser = function() {    
     if (this.firstNameInput.value.trim() == '' || this.lastNameInput.value.trim() == '') return;
     var name = `${this.firstNameInput.value} ${this.lastNameInput.value}`;    
     if (name.trim() == '' || !name.match(/^[A-Za-zА-ЯЁа-яё\s]+$/)) return;
-    this.emitter.emit('createdUser', {name: name, id: Math.random() * 100, isConst: false});
+
+    if (this.btn.getAttribute('data-user-id') != ''){
+        var id = this.btn.getAttribute('data-user-id');
+        this.emitter.emit('updateUser', {name: name, firstName: this.firstNameInput.value, lastName: this.lastNameInput.value, id: id, isConst: true});                
+    }
+    else this.emitter.emit('createdUser', {name: name, firstName: this.firstNameInput.value, lastName: this.lastNameInput.value, id: Math.random() * 100, isConst: false});
+    
+    this.btn.setAttribute('data-user-id', '');        
+    this.firstNameInput.value = '';
+    this.lastNameInput.value = '';
+}
+
+UserForm.prototype.editUser = function(user){
+    this.firstNameInput.value = user.firstName;
+    this.lastNameInput.value = user.lastName;
+    this.btn.setAttribute('data-user-id', user.id);   
 }

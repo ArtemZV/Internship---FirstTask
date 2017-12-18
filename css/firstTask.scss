@@ -1,6 +1,6 @@
 $tableWidth:    400px;
 $blackBorder: black;
-$dialogBrdrClr: #d31111;
+$popupBrdrClr: #d31111;
 
 .simpleButton{
     width: 150px; 
@@ -91,69 +91,49 @@ $tableBorderClr: #1A1F25;
     width: 150px;
 }
 
-#dialog{
-    display: none;
-
-    .dialogLayout{
-        position: absolute;
-        left: 0;
-        top: 0;
+#popup{
+    display: none;  
+    position: absolute;
+    z-index: 3;
+    right: -400px;
+    top: 30%;
+    width: 400px;
+    height: 150px;
+    border-radius: 5px;
+    background: mintcream;
+    border: 1px solid $popupBrdrClr;  
+    
+    .popupHeader{
+        font-size: 20px;
         width: 100%;
-        min-height: 800px;
-        height: 100%;
-        opacity: 0.4;
-        background: rgb(97, 92, 92);
-        z-index: 2
+        height: 40px;
+        border-radius: 4px 4px 0 0;
+        background: $popupBrdrClr;
+        color: mintcream;
+        text-align: center;
+        padding-top: 10px;
+        box-sizing: border-box;
     }
-    
-    .dialogPopup{
-        // display: none;
-        position: absolute;
-        z-index: 3;
-        left: 30%;
-        top: 30%;
-        width: 400px;
-        height: 200px;
-        border-radius: 5px;
-        background: mintcream;
-        border: 1px solid $dialogBrdrClr;
-    
-        .dialogHeader{
-            font-size: 20px;
-            width: 100%;
+
+    .popupBody{
+        width: 100%;
+        height: 60px;
+        text-align: center;
+        box-sizing: border-box;
+        padding-top: 20px;
+    }
+
+    .popupButtons{
+        width: 100%;
+        height: 50px;
+        box-sizing: border-box;
+        padding-left: 35%;
+
+        .popupBtn{
+            width: 125px;
             height: 40px;
-            border-radius: 4px 4px 0 0;
-            background: $dialogBrdrClr;
-            color: mintcream;
-            text-align: center;
-            padding-top: 10px;
-            box-sizing: border-box;
-        }
-    
-        .dialogBody{
-            width: 100%;
-            height: 110px;
-            text-align: center;
-            box-sizing: border-box;
-            padding-top: 20px;
-        }
-    
-        .dialogButtons{
-            width: 100%;
-            height: 50px;
-            box-sizing: border-box;
-            padding-left: 60px;
-    
-            .dialogBtn{
-                width: 125px;
-                height: 40px;
-                font-size: 20px;
-                border-radius: 4px;            
-            }
-    
-            .dialogBtn:first-child{
-                margin-right: 30px;
-            }
+            font-size: 20px;
+            border-radius: 4px;            
         }
     }
 }
