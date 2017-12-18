@@ -62,7 +62,7 @@ App.prototype.deleteUser = function(user){
 
 App.prototype.renderReview = function(review){
   this.usersTable.emitter.emit('renderReview', review);
-  this.showPopup(`You have added review.`);
+  this.showPopup('You have added review.');
 }
 
 App.prototype.renderAllReviews = function(reviews){
