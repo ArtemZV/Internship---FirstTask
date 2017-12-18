@@ -50,18 +50,16 @@ UsersTable.prototype.renderUser = function(user){
     newUserRow.appendChild(userNameCell);
     newUserRow.appendChild(reviewCell);
 
-    this.table.appendChild(newUserRow);  
-    this.emitter.emit('showPopup', `new user - ${user.name} added`);          
+    this.table.appendChild(newUserRow);       
 };
 
 UsersTable.prototype.updateUser = function(user){
-    if (typeof user !== 'object') return;
+    if (typeof user !== 'object' || !Number.isFinite(user.id)) return;
     var userRow = this.table.querySelector('[data-user-id="' + user.id + '"]'),
         userNameSpan = userRow.querySelector('span');
     userNameSpan.innerHTML = `${user.firstName} ${user.lastName}`;
     userNameSpan.setAttribute('data-user-firstName', user.firstName);
     userNameSpan.setAttribute('data-user-lastName', user.lastName);
-    this.emitter.emit('showPopup', "User has been update");
 };
 
 UsersTable.prototype.renderReview = function(review){
@@ -85,7 +83,7 @@ UsersTable.prototype.renderReview = function(review){
 }  
 
 UsersTable.prototype.deleteReview = function(reviewId){
-    if (!Number.isFinite(reviewId)) return;
+    if (typeof user !== 'object' || !Number.isFinite(reviewId)) return;
     var reviewCell = this.table.querySelector('[data-review-id="' + reviewId + '"]'),
         reviewParent = reviewCell.parentNode;
     reviewParent.parentNode.removeChild(reviewParent);
@@ -93,11 +91,10 @@ UsersTable.prototype.deleteReview = function(reviewId){
 }
 
 UsersTable.prototype.deleteUser = function(user){
-    if (!Number.isFinite(user.id)) return;
+    if (typeof user !== 'object' || !Number.isFinite(user.id)) return;
     var userRow = this.table.querySelector('[data-user-id="' + user.id + '"]');
     userRow.parentNode.removeChild(userRow);
-    this.emitter.emit('userDeleted', user.id);
-    this.emitter.emit('showPopup', `User ${user.name} deleted`);
+    this.emitter.emit('userDeleted', user);
 }
 
 UsersTable.prototype.renderAllUsers = function(usersArr){    

@@ -28,8 +28,6 @@ App.prototype.init = function(){
   this.usersTable.emitter.on('userDeleted', this.deleteUser.bind(this));  
   this.usersTable.emitter.on('editUser', this.editUser.bind(this));
 
-  this.userForm.emitter.on('showPopup', this.showPopup.bind(this));
-  this.reviewForm.emitter.on('showPopup', this.showPopup.bind(this));
   this.usersTable.emitter.on('showPopup', this.showPopup.bind(this));
 }
 
@@ -44,22 +42,27 @@ App.prototype.renderUser = function(user){
   user.name = `${user.firstName} ${user.lastName}`;
   this.usersTable.emitter.emit('renderUser', user); 
   if (!user.isConst) this.reviewForm.emitter.emit('addUserToSelect', user);
+  this.showPopup(`New user - ${user.name} added.`);
 }
 
 App.prototype.updateUser = function(user){
   this.usersTable.emitter.emit('updateUser', user);
+  this.showPopup(`User - ${user.name} updated`);
 }
 
 App.prototype.editUser = function(user) {
   this.userForm.emitter.emit('editUser', user);
+  this.showPopup(`User - ${user.name} edited.`);
 }
 
 App.prototype.deleteUser = function(user){
-  this.reviewForm.emitter.emit('deletedUser', user)
+  this.reviewForm.emitter.emit('deletedUser', user);
+  this.showPopup(`User - ${user.name} deleted.`);
 }
 
 App.prototype.renderReview = function(review){
   this.usersTable.emitter.emit('renderReview', review);
+  this.showPopup(`You have added review.`);
 }
 
 App.prototype.renderAllReviews = function(reviews){

@@ -19,8 +19,7 @@ ReviewForm.prototype.createReview = function(){
         userId = this.userSelect.selectedOptions[0].getAttribute('data-user-id');
 
     if (reviewText == '' || userId == '') return;
-    this.emitter.emit('createdReview', {reviewText: reviewText, id: Math.random() * 1000, userId: userId, isAproved: false});                
-    this.emitter.emit('showPopup', `You have added review to ${this.userSelect.value}`);
+    this.emitter.emit('createdReview', {reviewText: reviewText, id: Math.random() * 1000, userId: userId, isAproved: false});
 }
 
 ReviewForm.prototype.addUserToSelect = function(user){
@@ -32,9 +31,9 @@ ReviewForm.prototype.addUserToSelect = function(user){
     this.userSelect.appendChild(newUser);
 }
 
-ReviewForm.prototype.deleteUserFromSelect = function(userId){
-    if (!Number.isFinite(userId)) return;
-    var user = this.userSelect.querySelector('[data-user-id="' + userId + '"]');
+ReviewForm.prototype.deleteUserFromSelect = function(user){
+    if (typeof user !== 'object' || !Number.isFinite(user.id)) return;
+    var user = this.userSelect.querySelector('[data-user-id="' + user.id + '"]');
     user.parentNode.removeChild(user);
 }
 
