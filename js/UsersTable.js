@@ -83,11 +83,11 @@ UsersTable.prototype.renderReview = function(review){
 }  
 
 UsersTable.prototype.deleteReview = function(reviewId){
-    if (typeof user !== 'object' || !Number.isFinite(reviewId)) return;
+    if (!Number.isFinite(reviewId)) return;
     var reviewCell = this.table.querySelector('[data-review-id="' + reviewId + '"]'),
         reviewParent = reviewCell.parentNode;
     reviewParent.parentNode.removeChild(reviewParent);
-    this.emitter.emit('showPopup', 'Review deleted');
+    this.emitter.emit('reviewDeleted', 'Review deleted');
 }
 
 UsersTable.prototype.deleteUser = function(user){

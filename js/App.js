@@ -25,10 +25,10 @@ App.prototype.init = function(){
   this.userForm.emitter.on('createdUser', this.renderUser.bind(this));
   this.userForm.emitter.on('updateUser', this.updateUser.bind(this));
   this.reviewForm.emitter.on('createdReview', this.renderReview.bind(this));
+  
   this.usersTable.emitter.on('userDeleted', this.deleteUser.bind(this));  
   this.usersTable.emitter.on('editUser', this.editUser.bind(this));
-
-  this.usersTable.emitter.on('showPopup', this.showPopup.bind(this));
+  this.usersTable.emitter.on('reviewDeleted', this.showPopup.bind(this));
 }
 
 App.prototype.renderAllUsers = function(usersArr){
