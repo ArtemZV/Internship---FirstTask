@@ -3,6 +3,7 @@ function ReviewForm(el) {
     this.textArea = el.querySelector('#reviewTextInput');
     this.btn = el.querySelector('#addReviewBtn');
     this.userSelect = el.querySelector('#usersSelect');
+    this.dialog = new Dialog(document.getElementById('dialog'), 'Are you sure to add review?');
     this.emitter = new EventEmitter();
     this.init();   
 }
@@ -20,8 +21,8 @@ ReviewForm.prototype.createReview = function(){
         userId = this.userSelect.selectedOptions[0].getAttribute('data-user-id');
 
     if (reviewText == '' || userId == '') return;
-    if (confirm('Are you sure to add review?'))
-    this.emitter.emit('createdReview', {reviewText: reviewText, id: Math.random() * 1000, userId: userId, isAproved: false});         
+    this.dialog.dialog.onOKFunc =  () => { this.emitter.emit('createdReview', {reviewText: reviewText, id: Math.random() * 1000, userId: userId, isAproved: false})};
+    this.dialog.openDialog();                
 }
 
 ReviewForm.prototype.addUserToSelect = function(user){

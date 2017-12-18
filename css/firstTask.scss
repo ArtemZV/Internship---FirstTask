@@ -1,5 +1,6 @@
 $tableWidth:    400px;
-$blackBorder: 1px solid black;
+$blackBorder: black;
+$dialogBrdrClr: #d31111;
 
 .simpleButton{
     width: 150px; 
@@ -8,15 +9,23 @@ $blackBorder: 1px solid black;
 
 .block{
     display: inline-block;
-    width: 49%
+    width: 49%;
+
+    > div{
+        padding: 20px;
+        border: 1px solid black;
+        border-radius: 4px;
+    }
 }
 
 #userForm div{
     margin-bottom: 10px;
 }
 
+$tableBorderClr: #1A1F25;
+
 #usersTable{
-    border: $blackBorder;
+    border: 1px solid $tableBorderClr;
     margin: 20px;  
     width: $tableWidth;
     border-radius: 5px;
@@ -27,21 +36,27 @@ $blackBorder: 1px solid black;
         }
 
         td{
-        border-top: $blackBorder;
+        border-top: 1px solid $tableBorderClr;
         }
     }
 
-    thead tr {
-        background: peru;
+    thead {
+        background: $tableBorderClr;
+        color: #E6EBF1;
+        font-size: 20px;
     }
 
     thead td:first-child,  > tr > td:first-child{
-        border-right: $blackBorder;
+        border-right: 1px solid $tableBorderClr;
         height: 40px;
         width: 200px;
     }
 
-    td{
+    thead td {
+        padding-left: 10px;
+    }
+
+    td {
         width: 200px;
     }
 
@@ -74,4 +89,71 @@ $blackBorder: 1px solid black;
 
 #usersSelect{
     width: 150px;
+}
+
+#dialog{
+    display: none;
+
+    .dialogLayout{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        min-height: 800px;
+        height: 100%;
+        opacity: 0.4;
+        background: rgb(97, 92, 92);
+        z-index: 2
+    }
+    
+    .dialogPopup{
+        // display: none;
+        position: absolute;
+        z-index: 3;
+        left: 30%;
+        top: 30%;
+        width: 400px;
+        height: 200px;
+        border-radius: 5px;
+        background: mintcream;
+        border: 1px solid $dialogBrdrClr;
+    
+        .dialogHeader{
+            font-size: 20px;
+            width: 100%;
+            height: 40px;
+            border-radius: 4px 4px 0 0;
+            background: $dialogBrdrClr;
+            color: mintcream;
+            text-align: center;
+            padding-top: 10px;
+            box-sizing: border-box;
+        }
+    
+        .dialogBody{
+            width: 100%;
+            height: 110px;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 20px;
+        }
+    
+        .dialogButtons{
+            width: 100%;
+            height: 50px;
+            box-sizing: border-box;
+            padding-left: 60px;
+    
+            .dialogBtn{
+                width: 125px;
+                height: 40px;
+                font-size: 20px;
+                border-radius: 4px;            
+            }
+    
+            .dialogBtn:first-child{
+                margin-right: 30px;
+            }
+        }
+    }
 }
