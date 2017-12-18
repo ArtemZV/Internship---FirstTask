@@ -20,7 +20,7 @@ ReviewForm.prototype.createReview = function(){
 
     if (reviewText == '' || userId == '') return;
     this.emitter.emit('createdReview', {reviewText: reviewText, id: Math.random() * 1000, userId: userId, isAproved: false});                
-    this.emitter.emit('showPopup', 'You have added review');
+    this.emitter.emit('showPopup', `You have added review to ${this.userSelect.value}`);
 }
 
 ReviewForm.prototype.addUserToSelect = function(user){

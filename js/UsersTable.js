@@ -50,7 +50,8 @@ UsersTable.prototype.renderUser = function(user){
     newUserRow.appendChild(userNameCell);
     newUserRow.appendChild(reviewCell);
 
-    this.table.appendChild(newUserRow);        
+    this.table.appendChild(newUserRow);  
+    this.emitter.emit('showPopup', `new user - ${user.name} added`);          
 };
 
 UsersTable.prototype.updateUser = function(user){
