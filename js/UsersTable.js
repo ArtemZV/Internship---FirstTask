@@ -60,6 +60,7 @@ UsersTable.prototype.updateUser = function(user){
     userNameSpan.innerHTML = `${user.firstName} ${user.lastName}`;
     userNameSpan.setAttribute('data-user-firstName', user.firstName);
     userNameSpan.setAttribute('data-user-lastName', user.lastName);
+    this.emitter.emit('showPopup', "User has been update");
 };
 
 UsersTable.prototype.renderReview = function(review){

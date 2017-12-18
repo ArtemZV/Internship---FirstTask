@@ -1,8 +1,9 @@
+var RIGHT = '-400px';
 function Popup(popupSelector){
     this.popup = popupSelector;
     this.popup.body = this.popup.querySelector('.popupBody');
     this.popup.onOKFunc = function(){}; 
-    this.popup.style.right = '-400px';  
+    this.popup.style.right = RIGHT;  
     this.init();    
 }
 
@@ -27,6 +28,6 @@ Popup.prototype.openPopup = function(message){
 }
 
 Popup.prototype.closePopup = function(result){
-    this.popup.style.right = '-400px';
+    this.popup.style.right = RIGHT;
     this.popup.style.display = 'none';
 }
