@@ -95,6 +95,9 @@ $tableBorderClr: #1A1F25;
     position: absolute;
     right: 0px;
     top: 30%;
+    > div{
+        margin-bottom: 10px;
+    }
 }
 
 .popup{

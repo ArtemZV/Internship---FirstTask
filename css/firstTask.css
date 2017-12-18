@@ -58,6 +58,8 @@
   position: absolute;
   right: 0px;
   top: 30%; }
+  #popupsBlock > div {
+    margin-bottom: 10px; }
 
 .popup {
   display: none;
