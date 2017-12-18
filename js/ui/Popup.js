@@ -21,7 +21,7 @@ Popup.prototype.openPopup = function(){
             setTimeout(self.closePopup.bind(self), 1500);
             clearInterval(iter);
         }
-    },20);
+    }, 20);
 }
 
 Popup.prototype.closePopup = function(){
@@ -34,5 +34,5 @@ Popup.prototype.closePopup = function(){
             self.popup.parentNode.removeChild(self.popup)
             clearInterval(iter);
         }
-    },60);    
+    }, 60);    
 }
