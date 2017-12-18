@@ -50,6 +50,14 @@ App.prototype.updateUser = function(user){
   this.usersTable.emitter.emit('updateUser', user);
 }
 
+App.prototype.editUser = function(user) {
+  this.userForm.emitter.emit('editUser', user);
+}
+
+App.prototype.deleteUser = function(user){
+  this.reviewForm.emitter.emit('deletedUser', user)
+}
+
 App.prototype.renderReview = function(review){
   this.usersTable.emitter.emit('renderReview', review);
 }
@@ -57,14 +65,6 @@ App.prototype.renderReview = function(review){
 App.prototype.renderAllReviews = function(reviews){
   if (typeof reviews !== 'object') return;
   reviews.forEach(review => {this.usersTable.emitter.emit('renderReview', review)});
-}
-
-App.prototype.deleteUser = function(user){
-  this.reviewForm.emitter.emit('deletedUser', user)
-}
-
-App.prototype.editUser = function(user) {
-  this.userForm.emitter.emit('editUser', user);
 }
 
 App.prototype.showPopup = function(message){
