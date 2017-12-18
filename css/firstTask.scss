@@ -1,6 +1,6 @@
 $tableWidth:    400px;
 $blackBorder: black;
-$popupBrdrClr: #d31111;
+$popupBrdrClr: #1a1313;
 
 .simpleButton{
     width: 150px; 
@@ -93,7 +93,7 @@ $tableBorderClr: #1A1F25;
 
 #popupsBlock{
     position: absolute;
-    right: 0px;
+    right: 10px;
     top: 30%;
     > div{
         margin-bottom: 10px;
@@ -106,22 +106,10 @@ $tableBorderClr: #1A1F25;
     z-index: 3;
     right: -400px;
     width: 400px;
-    height: 90px;
     border-radius: 5px;
-    background: mintcream;
-    border: 1px solid $popupBrdrClr;  
-    
-    .popupHeader{
-        font-size: 20px;
-        width: 100%;
-        height: 30px;
-        border-radius: 4px 4px 0 0;
-        background: $popupBrdrClr;
-        color: mintcream;
-        text-align: center;
-        padding-top: 5px;
-        box-sizing: border-box;
-    }
+    background: $popupBrdrClr;
+    color: mintcream;
+    border: 1px solid $popupBrdrClr;
 
     .popupBody{
         width: 100%;

@@ -29,7 +29,7 @@ UsersTable.prototype.renderUser = function(user){
 
     var deleteUserwBtn = document.createElement('button');
         deleteUserwBtn.innerHTML = 'X';
-        deleteUserwBtn.addEventListener('click', () => this.deleteUser(user.id));
+        deleteUserwBtn.addEventListener('click', () => this.deleteUser(user));
 
     var userNameSpan = document.createElement('span');
     userNameSpan.innerHTML = user.name;
@@ -89,13 +89,15 @@ UsersTable.prototype.deleteReview = function(reviewId){
     var reviewCell = this.table.querySelector('[data-review-id="' + reviewId + '"]'),
         reviewParent = reviewCell.parentNode;
     reviewParent.parentNode.removeChild(reviewParent);
+    this.emitter.emit('showPopup', 'Review deleted');
 }
 
-UsersTable.prototype.deleteUser = function(userId){
-    if (!Number.isFinite(userId)) return;
-    var userRow = this.table.querySelector('[data-user-id="' + userId + '"]');
+UsersTable.prototype.deleteUser = function(user){
+    if (!Number.isFinite(user.id)) return;
+    var userRow = this.table.querySelector('[data-user-id="' + user.id + '"]');
     userRow.parentNode.removeChild(userRow);
-    this.emitter.emit('userDeleted', userId);
+    this.emitter.emit('userDeleted', user.id);
+    this.emitter.emit('showPopup', `User ${user.name} deleted`);
 }
 
 UsersTable.prototype.renderAllUsers = function(usersArr){    

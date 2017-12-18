@@ -1,15 +1,10 @@
 function Popup(message){
     var popup = document.createElement('div'),
-        header = document.createElement('div'),
         body = document.createElement('div');
-
-    header.innerText = 'Message popup';
-    header.classList.add('popupHeader');
 
     body.classList.add('popupBody');
     body.innerText = message || 'some text';
     popup.classList.add('popup');
-    popup.appendChild(header);
     popup.appendChild(body);
     this.popup = document.body.querySelector('#popupsBlock').appendChild(popup);
     this.popup.body = this.popup.querySelector('.popupBody');
