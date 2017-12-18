@@ -2,7 +2,6 @@ var RIGHT = '-400px';
 function Popup(popupSelector){
     this.popup = popupSelector;
     this.popup.body = this.popup.querySelector('.popupBody');
-    this.popup.onOKFunc = function(){}; 
     this.popup.style.right = RIGHT;  
     this.init();    
 }
