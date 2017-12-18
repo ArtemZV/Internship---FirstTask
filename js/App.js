@@ -2,7 +2,6 @@ function App(){
   this.userForm = new UserForm(document.getElementById('userForm'));
   this.usersTable = new UsersTable(document.getElementById('usersTable'));  
   this.reviewForm = new ReviewForm(document.getElementById('reviewForm'));
-  this.popup = new Popup(document.getElementById('popup'));
   this.init();
 }
 
@@ -28,7 +27,7 @@ App.prototype.init = function(){
   this.reviewForm.emitter.on('createdReview', this.renderReview.bind(this));
   this.usersTable.emitter.on('userDeleted', this.deleteUser.bind(this));  
   this.usersTable.emitter.on('editUser', this.editUser.bind(this));
-  
+
   this.userForm.emitter.on('showPopup', this.showPopup.bind(this));
   this.reviewForm.emitter.on('showPopup', this.showPopup.bind(this));
   this.usersTable.emitter.on('showPopup', this.showPopup.bind(this));
@@ -69,7 +68,7 @@ App.prototype.editUser = function(user) {
 }
 
 App.prototype.showPopup = function(message){
-  this.popup.openPopup(message);
+  new Popup(message);
 }
 
 window.addEventListener('DOMContentLoaded', function(){

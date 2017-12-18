@@ -91,14 +91,19 @@ $tableBorderClr: #1A1F25;
     width: 150px;
 }
 
-#popup{
-    display: none;  
+#popupsBlock{
     position: absolute;
+    right: 0px;
+    top: 30%;
+}
+
+.popup{
+    display: none;  
+    position: relative;
     z-index: 3;
     right: -400px;
-    top: 30%;
     width: 400px;
-    height: 150px;
+    height: 90px;
     border-radius: 5px;
     background: mintcream;
     border: 1px solid $popupBrdrClr;  
@@ -106,12 +111,12 @@ $tableBorderClr: #1A1F25;
     .popupHeader{
         font-size: 20px;
         width: 100%;
-        height: 40px;
+        height: 30px;
         border-radius: 4px 4px 0 0;
         background: $popupBrdrClr;
         color: mintcream;
         text-align: center;
-        padding-top: 10px;
+        padding-top: 5px;
         box-sizing: border-box;
     }
 
@@ -121,19 +126,5 @@ $tableBorderClr: #1A1F25;
         text-align: center;
         box-sizing: border-box;
         padding-top: 20px;
-    }
-
-    .popupButtons{
-        width: 100%;
-        height: 50px;
-        box-sizing: border-box;
-        padding-left: 35%;
-
-        .popupBtn{
-            width: 125px;
-            height: 40px;
-            font-size: 20px;
-            border-radius: 4px;            
-        }
     }
 }
