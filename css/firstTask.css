@@ -30,7 +30,7 @@ body {
 #userForm .formInput input {
   height: 24px; }
 
-#usersBlock, #reviewForm {
+#userForm, #reviewForm {
   margin-top: 20px;
   display: table;
   background-color: #ded8d8; }
