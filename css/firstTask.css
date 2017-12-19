@@ -91,15 +91,15 @@ body {
   position: absolute;
   right: 10px;
   top: 5%;
-  width: 350px; }
+  width: 250px; }
   #popupsBlock .popup {
     box-sizing: border-box;
     color: mintcream;
     display: none;
-    height: 50px;
+    height: 40px;
     margin-bottom: 10px;
     position: relative;
-    padding-top: 20px;
+    padding-top: 15px;
     right: -400px;
     text-align: center;
     width: 100%;
