@@ -3,9 +3,17 @@
   height: 24px; }
 
 .block {
-  display: inline-block;
-  width: 49%; }
+  display: block;
+  width: 100%; }
   .block > div {
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 4px; }
+
+.inline-block {
+  display: inline-block;
+  min-width: 25%; }
+  .inline-block > div {
     padding: 20px;
     border: 1px solid black;
     border-radius: 4px; }
@@ -16,7 +24,7 @@
 #usersTable {
   border: 1px solid #1A1F25;
   margin: 20px;
-  width: 400px;
+  width: 615px;
   border-radius: 5px; }
   #usersTable > tr > td {
     padding-left: 5px; }
@@ -33,9 +41,13 @@
   #usersTable thead td {
     padding-left: 10px; }
   #usersTable td {
-    width: 200px; }
-  #usersTable table tr:first-child td {
-    border-top: none; }
+    width: 50%; }
+  #usersTable table {
+    width: 100%; }
+    #usersTable table td {
+      width: 100%; }
+    #usersTable table tr:first-child td {
+      border-top: none; }
   #usersTable tr.isConst {
     background: #CF0000; }
   #usersTable table td.isNotAproved {

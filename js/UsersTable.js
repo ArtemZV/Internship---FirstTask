@@ -98,13 +98,9 @@ UsersTable.prototype.deleteUser = function(user){
 }
 
 UsersTable.prototype.renderAllUsers = function(usersArr){    
-    usersArr.forEach(user => {
-        this.renderUser(user)
-    });
+    usersArr.forEach(user => this.renderUser(user));
 }
 
 UsersTable.prototype.renderAllReivews = function(reviewArr){    
-    reviewArr.forEach(review => {
-        this.renderReview(review)
-    });
+    reviewArr.forEach(review => this.renderReview(review));
 }

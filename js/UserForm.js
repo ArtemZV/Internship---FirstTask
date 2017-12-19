@@ -18,7 +18,7 @@ UserForm.prototype.createUser = function() {
     if (name.trim() == '' || !name.match(/^[A-Za-zА-ЯЁа-яё\s]+$/)) return;
 
     if (this.btn.getAttribute('data-user-id') != null){
-        var id = this.btn.getAttribute('data-user-id');
+        var id = +this.btn.getAttribute('data-user-id');
         this.emitter.emit('updateUser', {name: name, firstName: this.firstNameInput.value, lastName: this.lastNameInput.value, id: id, isConst: true});                
     }
     else this.emitter.emit('createdUser', {name: name, firstName: this.firstNameInput.value, lastName: this.lastNameInput.value, id: Math.random() * 100, isConst: false});    

@@ -38,7 +38,5 @@ ReviewForm.prototype.deleteUserFromSelect = function(user){
 }
 
 ReviewForm.prototype.addAllUsersToSelect = function(usersArr){
-    usersArr.forEach(user => {
-        this.addUserToSelect(user)
-    });
+    usersArr.forEach(user => this.addUserToSelect(user));
 }

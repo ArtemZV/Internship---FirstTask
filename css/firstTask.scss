@@ -1,4 +1,4 @@
-$tableWidth:    400px;
+$tableWidth:    615px;
 $blackBorder: black;
 $popupBrdrClr: #1a1313;
 
@@ -8,8 +8,19 @@ $popupBrdrClr: #1a1313;
 }
 
 .block{
+    display: block;
+    width: 100%;
+
+    > div{
+        padding: 20px;
+        border: 1px solid black;
+        border-radius: 4px;
+    }
+}
+
+.inline-block{
     display: inline-block;
-    width: 49%;
+    min-width: 25%;
 
     > div{
         padding: 20px;
@@ -57,11 +68,19 @@ $tableBorderClr: #1A1F25;
     }
 
     td {
-        width: 200px;
+        width: 50%;
     }
 
-    table tr:first-child td{
-        border-top: none;
+    table{
+        width: 100%;
+
+        td{
+            width: 100%;
+        }
+
+        tr:first-child td{
+            border-top: none;
+        }
     }
 
     tr.isConst{

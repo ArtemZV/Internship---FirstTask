@@ -33,7 +33,7 @@ App.prototype.init = function(){
 
 App.prototype.renderAllUsers = function(usersArr){
   if (typeof usersArr !== 'object') return;
-  usersArr.forEach(u => (u.name = `${u.firstName} ${u.lastName}`));
+  usersArr.forEach(u => u.name = `${u.firstName} ${u.lastName}`);
   this.usersTable.emitter.emit('renderAllUsers', usersArr);
   this.reviewForm.emitter.emit('addAllUsersToSelect', usersArr);  
 }
@@ -52,7 +52,6 @@ App.prototype.updateUser = function(user){
 
 App.prototype.editUser = function(user) {
   this.userForm.emitter.emit('editUser', user);
-  this.showPopup(`User - ${user.name} edited.`);
 }
 
 App.prototype.deleteUser = function(user){
@@ -67,7 +66,7 @@ App.prototype.renderReview = function(review){
 
 App.prototype.renderAllReviews = function(reviews){
   if (typeof reviews !== 'object') return;
-  reviews.forEach(review => {this.usersTable.emitter.emit('renderReview', review)});
+  reviews.forEach(review => this.usersTable.emitter.emit('renderReview', review));
 }
 
 App.prototype.showPopup = function(message){
