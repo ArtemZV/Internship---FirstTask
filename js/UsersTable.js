@@ -27,9 +27,9 @@ UsersTable.prototype.renderUser = function(user){
     var newUserRow = document.createElement('tr'),
         userNameCell = document.createElement('td');
 
-    var deleteUserwBtn = document.createElement('span');
-        deleteUserwBtn.innerHTML = 'x';
-        deleteUserwBtn.addEventListener('click', () => this.deleteUser(user));
+    var deleteUserwBtn = document.createElement('img');
+    deleteUserwBtn.src = 'images/cross.png';
+    deleteUserwBtn.addEventListener('click', () => this.deleteUser(user));
 
     var userNameSpan = document.createElement('span');
     userNameSpan.innerHTML = user.name;
@@ -65,14 +65,17 @@ UsersTable.prototype.updateUser = function(user){
 UsersTable.prototype.renderReview = function(review){
     if (typeof review !== 'object') return;
 
-    var deleteReviewBtn = document.createElement('span');
-    deleteReviewBtn.innerHTML = 'x';
+    var deleteReviewBtn = document.createElement('img');
+    deleteReviewBtn.src = 'images/cross.png';
     deleteReviewBtn.addEventListener('click', () => this.deleteReview(review.id));
 
-    var newReviewCell = document.createElement('td');
-    newReviewCell.innerHTML = review.reviewText; 
+    var newReviewCell = document.createElement('td'),
+        newReviewSpan = document.createElement('span');
+
+    newReviewSpan.innerHTML = review.reviewText; 
     newReviewCell.setAttribute('data-review-id', review.id);
     if (!review.isAproved) newReviewCell.classList.add('isNotAproved');
+    newReviewCell.appendChild(newReviewSpan);
     newReviewCell.appendChild(deleteReviewBtn);
 
     var userRow = this.table.querySelector('[data-user-id="' + review.userId + '"]');

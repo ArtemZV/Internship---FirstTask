@@ -94,14 +94,14 @@ $blackBorder: 1px solid black;
     }
 
     thead th:first-child, > tr > td:first-child{
-        height: 40px;
-        width: 200px;     
+        height: 32px;     
         border-right: 1px solid #e1e1e1;   
     }    
 
     td {
         width: 50%;
         color: rgb(117, 117, 117);
+        word-break: break-word;
     }
 
     table{
@@ -110,12 +110,15 @@ $blackBorder: 1px solid black;
 
         td{
             width: 100%;
-            padding: 4px;
-            .isNotAproved{
-                background: #eee
-            }
+            padding: 4px;    
+            min-height: 32px;            
+            max-width: 600px;
         }
         
+        td.isNotAproved{
+            background-color: #eee
+        }
+
         tr:first-child{
             border-top: none;
         }
@@ -123,16 +126,16 @@ $blackBorder: 1px solid black;
         tr{
             border-top: 1px solid #e1e1e1;            
         }
-
     }    
 
-    span:last-child{
-        border-radius: 5px;
-        border-color: #e1e1e1;
+    img{
         float: right;
         margin-right: 3px;
+        height: 20px;
+        width: 20px;
     }
 }
+
 @keyframes rightAppear {
     from {right: -400px;}
     to {right: 0;}

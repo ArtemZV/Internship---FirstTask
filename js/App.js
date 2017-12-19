@@ -29,7 +29,7 @@ App.prototype.init = function(){
   
   this.usersTable.emitter.on('userDeleted', this.deleteUser.bind(this));  
   this.usersTable.emitter.on('editUser', this.editUser.bind(this));
-  this.usersTable.emitter.on('reviewDeleted', this.popup.showPopup);
+  this.usersTable.emitter.on('reviewDeleted', this.popup.showPopup.bind(this.popup));
 }
 
 App.prototype.renderAllUsers = function(usersArr){
