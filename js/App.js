@@ -2,6 +2,7 @@ function App(){
   this.userForm = new UserForm(document.getElementById('userForm'));
   this.usersTable = new UsersTable(document.getElementById('usersTable'));  
   this.reviewForm = new ReviewForm(document.getElementById('reviewForm'));
+  this.popup = new Popup(document.getElementById('popupsBlock'));
   this.init();
 }
 
@@ -71,7 +72,7 @@ App.prototype.renderAllReviews = function(reviews){
 }
 
 App.prototype.showPopup = function(message){
-  new Popup(message);
+  this.popup.showPopup(message);
 }
 
 window.addEventListener('DOMContentLoaded', function(){
