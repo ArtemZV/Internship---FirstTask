@@ -2,30 +2,30 @@ body {
   background-color: #f1f1f1; }
 
 .simpleButton {
-  width: 100%;
-  height: 24px;
+  border-color: #a1a1ad;
   border-radius: 4px;
-  border-color: #a1a1ad; }
+  height: 24px;
+  width: 100%; }
 
 .block {
+  box-sizing: border-box;
   display: block;
-  width: 100%;
   padding: 0 20px;
-  box-sizing: border-box; }
+  width: 100%; }
   .block > div {
-    padding: 20px;
     border: 1px solid black;
-    border-radius: 4px; }
+    border-radius: 4px;
+    padding: 20px; }
 
 .inline-block {
+  box-sizing: border-box;
   display: inline-block;
   min-width: 25%;
-  padding-left: 20px;
-  box-sizing: border-box; }
+  padding-left: 20px; }
   .inline-block > div {
-    padding: 20px;
     border: 1px solid black;
-    border-radius: 4px; }
+    border-radius: 4px;
+    padding: 20px; }
 
 #userForm div {
   margin-bottom: 10px;
@@ -34,18 +34,18 @@ body {
   height: 24px; }
 
 #userForm, #reviewForm {
-  margin-top: 20px;
+  background-color: #ded8d8;
   display: table;
-  background-color: #ded8d8; }
+  margin-top: 20px; }
 
 #reviewForm div {
-  margin-bottom: 10px;
   align-items: center;
-  display: flex; }
+  display: flex;
+  margin-bottom: 10px; }
 #reviewForm #usersSelect {
-  width: 150px;
+  border-radius: 5px;
   height: 30px;
-  border-radius: 5px; }
+  width: 150px; }
 
 #usersTable {
   background-color: #ded8d8;
@@ -80,10 +80,10 @@ body {
   #usersTable table td.isNotAproved {
     background: gray; }
   #usersTable button {
-    float: right;
-    margin-right: 3px;
     border-radius: 5px;
-    border-color: #5d5959; }
+    border-color: #5d5959;
+    float: right;
+    margin-right: 3px; }
 
 #popupsBlock {
   background-color: #1a1313;
