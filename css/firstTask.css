@@ -85,7 +85,9 @@ body {
 #popupsBlock {
   position: absolute;
   right: 10px;
-  top: 30%; }
+  top: 30%;
+  background-color: #1a1313;
+  border-radius: 4px; }
   #popupsBlock .popup {
     display: none;
     position: relative;
