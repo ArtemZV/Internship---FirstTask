@@ -86,6 +86,7 @@ body {
   position: absolute;
   right: 10px;
   top: 30%;
+  width: 400px;
   background-color: #1a1313;
   border-radius: 4px; }
   #popupsBlock .popup {
@@ -93,14 +94,12 @@ body {
     position: relative;
     z-index: 3;
     right: -400px;
-    width: 400px;
     color: mintcream;
-    margin-bottom: 10px; }
-    #popupsBlock .popup .popupBody {
-      width: 100%;
-      height: 60px;
-      text-align: center;
-      box-sizing: border-box;
-      padding-top: 20px; }
+    margin-bottom: 10px;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 20px; }
 
 /*# sourceMappingURL=firstTask.css.map */

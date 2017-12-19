@@ -18,13 +18,10 @@ Popup.prototype.showPopup = function(message){
 }
 
 Popup.prototype.createPopup = function(message){
-    var popup = document.createElement('div'),
-        body = document.createElement('div');
-    body.classList.add('popupBody');
-    body.innerText = message || 'some text';
+    var popup = document.createElement('div');
+    popup.innerText = message || 'some text';
     popup.classList.add('popup');
-    popup.style.right = '-400px';    
-    popup.appendChild(body);
+    popup.style.right = '-400px';
     return popup;
 }
 
