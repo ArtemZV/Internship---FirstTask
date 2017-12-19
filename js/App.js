@@ -39,6 +39,7 @@ App.prototype.renderAllUsers = function(usersArr){
 }
 
 App.prototype.renderUser = function(user){
+  if (typeof user !== 'object') return;
   user.name = `${user.firstName} ${user.lastName}`;
   this.usersTable.emitter.emit('renderUser', user); 
   if (!user.isConst) this.reviewForm.emitter.emit('addUserToSelect', user);
