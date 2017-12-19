@@ -15,6 +15,8 @@ body{
 .block{
     display: block;
     width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
 
     > div{
         padding: 20px;
@@ -26,7 +28,8 @@ body{
 .inline-block{
     display: inline-block;
     min-width: 25%;
-    margin-left: 20px;
+    padding-left: 20px;
+    box-sizing: border-box;
 
     > div{
         padding: 20px;
@@ -67,11 +70,11 @@ body{
 } 
 
 #usersTable{
+    background-color: #ded8d8;
     border: 1px solid $tableBorderClr;
+    border-radius: 5px;
     margin: 20px 0;  
     width: 100%;
-    border-radius: 5px;
-    background-color: #ded8d8;
 
     > tr{
          > td{

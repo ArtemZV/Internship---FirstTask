@@ -9,7 +9,9 @@ body {
 
 .block {
   display: block;
-  width: 100%; }
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box; }
   .block > div {
     padding: 20px;
     border: 1px solid black;
@@ -18,7 +20,8 @@ body {
 .inline-block {
   display: inline-block;
   min-width: 25%;
-  margin-left: 20px; }
+  padding-left: 20px;
+  box-sizing: border-box; }
   .inline-block > div {
     padding: 20px;
     border: 1px solid black;
@@ -45,11 +48,11 @@ body {
   border-radius: 5px; }
 
 #usersTable {
+  background-color: #ded8d8;
   border: 1px solid #1A1F25;
-  margin: 20px 0;
-  width: 100%;
   border-radius: 5px;
-  background-color: #ded8d8; }
+  margin: 20px 0;
+  width: 100%; }
   #usersTable > tr > td {
     padding-left: 5px; }
   #usersTable > tr td {
