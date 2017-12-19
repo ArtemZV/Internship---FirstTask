@@ -9,9 +9,9 @@ Popup.prototype.showPopup = function(message){
     popup.style.display = 'block';
     var self = this;
     var iter = setInterval(function(){
-        popup.style.right = parseFloat(popup.style.right) + 50 + "px";
+        popup.style.right = parseFloat(popup.style.right) + 40 + "px";
         if (parseFloat(popup.style.right) >= 0) {
-            setTimeout(() => self.closePopup(popup), 1500);
+            setTimeout(() => self.closePopup(popup), 2000);
             clearInterval(iter);
         }
     }, 20);
@@ -30,9 +30,8 @@ Popup.prototype.closePopup = function(popup){
     var iter = setInterval(function(){
         popup.style.opacity = parseFloat(popup.style.opacity) - 0.1;
         if (parseFloat(popup.style.opacity) <= 0) {
-            popup.style.display = 'none';
             popup.parentNode.removeChild(popup)
             clearInterval(iter);
         }
-    }, 60);    
+    }, 80);    
 }
