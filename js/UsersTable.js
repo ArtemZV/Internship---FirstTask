@@ -27,8 +27,8 @@ UsersTable.prototype.renderUser = function(user){
     var newUserRow = document.createElement('tr'),
         userNameCell = document.createElement('td');
 
-    var deleteUserwBtn = document.createElement('button');
-        deleteUserwBtn.innerHTML = 'X';
+    var deleteUserwBtn = document.createElement('span');
+        deleteUserwBtn.innerHTML = 'x';
         deleteUserwBtn.addEventListener('click', () => this.deleteUser(user));
 
     var userNameSpan = document.createElement('span');
@@ -65,8 +65,8 @@ UsersTable.prototype.updateUser = function(user){
 UsersTable.prototype.renderReview = function(review){
     if (typeof review !== 'object') return;
 
-    var deleteReviewBtn = document.createElement('button');
-    deleteReviewBtn.innerHTML = 'X';
+    var deleteReviewBtn = document.createElement('span');
+    deleteReviewBtn.innerHTML = 'x';
     deleteReviewBtn.addEventListener('click', () => this.deleteReview(review.id));
 
     var newReviewCell = document.createElement('td');

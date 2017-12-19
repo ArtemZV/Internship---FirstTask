@@ -18,5 +18,5 @@ Popup.prototype.createPopup = function(message){
 
 Popup.prototype.closePopup = function(popup){
     popup.classList.add('close');
-    setTimeout(() => popup.parentNode.removeChild(popup), 700);
+    setTimeout(() => this.popupsBlock.removeChild(popup), 700);
 }

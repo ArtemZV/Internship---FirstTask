@@ -1,10 +1,6 @@
 $tableBorderClr: #1A1F25;
 $blackBorder: 1px solid black;
 
-body{
-    background-color: #f1f1f1;
-}
-
 .simpleButton{
     border-color: #a1a1ad;
     border-radius: 4px;
@@ -70,65 +66,69 @@ body{
 } 
 
 #usersTable{
-    background-color: #ded8d8;
-    border: 1px solid $tableBorderClr;
-    border-radius: 5px;
-    margin: 20px 0;  
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    border-collapse: collapse;
+    box-shadow: 1px 2px 2px 1px #e1e1e1;
+    margin: 20px 0;
     width: 100%;
 
     > tr{
          > td{
-        padding-left: 5px;
-        }
-
-        td{
-        border-top: 1px solid $tableBorderClr;
-        }
-    }
-
-    thead {
-        background: $tableBorderClr;
-        color: #E6EBF1;
-        font-size: 20px;
-    }
-
-    thead td:first-child,  > tr > td:first-child{
-        border-right: 1px solid $tableBorderClr;
-        height: 40px;
-        width: 200px;
-    }
-
-    thead td {
-        padding-left: 10px;
-    }
-
-    td {
-        width: 50%;
-    }
-
-    table{
-        width: 100%;
-
-        td{
-            width: 100%;
-        }
-
-        tr:first-child td{
-            border-top: none;
+            padding-left: 5px;
+            border-top: 1px solid #e1e1e1;
         }
     }
 
     tr.isConst{
-        background: #CF0000;
+        background: #fb7f7f;
     }
 
-    table td.isNotAproved{
-        background: gray
+    thead {
+        font-size: 20px;
+
+        th {
+            padding-left: 10px;
+            color: rgba(0, 0, 0, 0.54);
+        }
     }
 
-    button{
+    thead th:first-child, > tr > td:first-child{
+        height: 40px;
+        width: 200px;     
+        border-right: 1px solid #e1e1e1;   
+    }    
+
+    td {
+        width: 50%;
+        color: rgb(117, 117, 117);
+    }
+
+    table{
+        width: 100%;
+        border-collapse: collapse;
+
+        td{
+            width: 100%;
+            padding: 4px;
+            .isNotAproved{
+                background: #eee
+            }
+        }
+        
+        tr:first-child{
+            border-top: none;
+        }
+
+        tr{
+            border-top: 1px solid #e1e1e1;            
+        }
+
+    }    
+
+    span:last-child{
         border-radius: 5px;
-        border-color: #5d5959;
+        border-color: #e1e1e1;
         float: right;
         margin-right: 3px;
     }
