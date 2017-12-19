@@ -17,16 +17,32 @@ body {
 
 .inline-block {
   display: inline-block;
-  min-width: 25%; }
+  min-width: 25%;
+  margin-left: 20px; }
   .inline-block > div {
     padding: 20px;
     border: 1px solid black;
     border-radius: 4px; }
 
 #userForm div {
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  text-align: right; }
 #userForm .formInput input {
   height: 24px; }
+
+#usersBlock, #reviewForm {
+  margin-top: 20px;
+  display: table;
+  background-color: #ded8d8; }
+
+#reviewForm div {
+  margin-bottom: 10px;
+  align-items: center;
+  display: flex; }
+#reviewForm #usersSelect {
+  width: 150px;
+  height: 30px;
+  border-radius: 5px; }
 
 #usersTable {
   border: 1px solid #1A1F25;
@@ -65,18 +81,6 @@ body {
     margin-right: 3px;
     border-radius: 5px;
     border-color: #5d5959; }
-
-#usersBlock, #reviewForm {
-  margin: 20px;
-  display: table;
-  background-color: #ded8d8; }
-
-#reviewForm div {
-  margin-bottom: 10px; }
-#reviewForm #usersSelect {
-  width: 150px;
-  height: 30px;
-  border-radius: 5px; }
 
 #popupsBlock {
   position: absolute;

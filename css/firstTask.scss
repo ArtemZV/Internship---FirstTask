@@ -1,6 +1,8 @@
 $tableWidth:    615px;
+$tableBorderClr: #1A1F25;
 $blackBorder: 1px solid black;
 $popupBrdrClr: #1a1313;
+
 body{
     background-color: #f1f1f1;
 }
@@ -26,6 +28,7 @@ body{
 .inline-block{
     display: inline-block;
     min-width: 25%;
+    margin-left: 20px;
 
     > div{
         padding: 20px;
@@ -37,14 +40,33 @@ body{
 #userForm{
     div{
         margin-bottom: 10px;
+        text-align: right;        
     }
 
     .formInput input{
         height: 24px;
     }    
-} 
+}
 
-$tableBorderClr: #1A1F25;
+#usersBlock,#reviewForm{
+    margin-top: 20px;    
+    display: table;
+    background-color: #ded8d8;
+}
+
+#reviewForm{
+    div{
+        margin-bottom: 10px;
+        align-items: center;
+        display: flex;
+    }
+
+    #usersSelect{
+        width: 150px;
+        height: 30px;
+        border-radius: 5px;
+    }
+} 
 
 #usersTable{
     border: 1px solid $tableBorderClr;
@@ -110,25 +132,6 @@ $tableBorderClr: #1A1F25;
         border-color: #5d5959;
     }
 }
-
-#usersBlock,#reviewForm{
-    margin: 20px;
-    display: table;
-    background-color: #ded8d8;
-}
-
-#reviewForm{
-    div{
-        margin-bottom: 10px;
-    }
-
-    #usersSelect{
-        width: 150px;
-        height: 30px;
-        border-radius: 5px;
-    }
-} 
-
 
 #popupsBlock{
     position: absolute;
