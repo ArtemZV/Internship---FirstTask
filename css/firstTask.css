@@ -50,12 +50,16 @@
   border-collapse: collapse;
   box-shadow: 1px 2px 2px 1px #e1e1e1;
   margin: 20px 0;
-  width: 100%; }
+  width: 100%;
+  max-width: 1225px; }
   #usersTable > tr > td {
     padding-left: 5px;
     border-top: 1px solid #e1e1e1; }
-  #usersTable tr.isConst {
-    background: #fb7f7f; }
+  #usersTable tr {
+    color: #757575; }
+  #usersTable tr.isConst td {
+    background: #fb7f7f;
+    color: #443f3f; }
   #usersTable thead {
     font-size: 20px; }
     #usersTable thead th {
@@ -66,14 +70,27 @@
     border-right: 1px solid #e1e1e1; }
   #usersTable td {
     width: 50%;
-    color: #757575;
+    max-width: 610px;
     word-break: break-word; }
+    #usersTable td span {
+      width: 96%;
+      max-width: 590px;
+      display: inline-table;
+      line-height: 16px;
+      vertical-align: middle;
+      margin: 3px; }
+    #usersTable td img {
+      margin-right: 3px;
+      width: 20px;
+      display: inline-table;
+      cursor: pointer;
+      vertical-align: middle; }
   #usersTable table {
     width: 100%;
     border-collapse: collapse; }
     #usersTable table td {
       width: 100%;
-      padding: 4px;
+      padding: 6px;
       min-height: 32px;
       max-width: 600px; }
     #usersTable table td.isNotAproved {
@@ -82,11 +99,6 @@
       border-top: none; }
     #usersTable table tr {
       border-top: 1px solid #e1e1e1; }
-  #usersTable img {
-    float: right;
-    margin-right: 3px;
-    height: 20px;
-    width: 20px; }
 
 @keyframes rightAppear {
   from {

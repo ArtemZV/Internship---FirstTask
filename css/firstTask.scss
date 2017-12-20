@@ -45,7 +45,7 @@ $blackBorder: 1px solid black;
     }    
 }
 
-#userForm,#reviewForm{
+#userForm, #reviewForm{
     background-color: #ded8d8;
     display: table;
     margin-top: 20px;    
@@ -72,6 +72,7 @@ $blackBorder: 1px solid black;
     box-shadow: 1px 2px 2px 1px #e1e1e1;
     margin: 20px 0;
     width: 100%;
+    max-width: 1225px;
 
     > tr{
          > td{
@@ -80,9 +81,15 @@ $blackBorder: 1px solid black;
         }
     }
 
-    tr.isConst{
-        background: #fb7f7f;
+    tr{
+        color: rgb(117, 117, 117);
     }
+
+    tr.isConst td{
+        background: #fb7f7f;
+        color: rgb(68, 63, 63);
+    }
+    
 
     thead {
         font-size: 20px;
@@ -100,8 +107,25 @@ $blackBorder: 1px solid black;
 
     td {
         width: 50%;
-        color: rgb(117, 117, 117);
+        max-width: 610px;
         word-break: break-word;
+
+        span{
+            width: 96%;
+            max-width: 590px;
+            display: inline-table;
+            line-height: 16px;
+            vertical-align: middle;
+            margin: 3px;
+        }
+
+        img{
+            margin-right: 3px;
+            width: 20px;
+            display: inline-table;
+            cursor: pointer;
+            vertical-align: middle;
+        }
     }
 
     table{
@@ -110,7 +134,7 @@ $blackBorder: 1px solid black;
 
         td{
             width: 100%;
-            padding: 4px;    
+            padding: 6px;    
             min-height: 32px;            
             max-width: 600px;
         }
@@ -126,14 +150,7 @@ $blackBorder: 1px solid black;
         tr{
             border-top: 1px solid #e1e1e1;            
         }
-    }    
-
-    img{
-        float: right;
-        margin-right: 3px;
-        height: 20px;
-        width: 20px;
-    }
+    }  
 }
 
 @keyframes rightAppear {
